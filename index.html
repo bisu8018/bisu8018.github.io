@@ -39,18 +39,25 @@
 </head>
 
 <body>
+<div class="dummy" id="dummyBase"></div>
+<div class="dummy" id="dummyFirst"></div>
+<div class="dummy" id="dummySecond"></div>
 
-<!-- Add your site or application content here -->
 <header>
   <div class="h_logo">
     <div class="glitch" data-text="Dean">
       Dean
     </div>
+    <div>
+      Dean
+    </div>
   </div>
 </header>
+
+
 <nav id="nav">
   <div class="nav_wrapper">
-    <div id="navHome" class="nav_clicked">
+    <div id="navHome">
       <ul class="nav_hidden">
         <li>H</li>
         <li class="ghost">o</li>
@@ -58,7 +65,7 @@
         <li class="ghost">e</li>
       </ul>
     </div>
-    <div id="navAbout" >
+    <div id="navAbout">
       <ul class="nav_hidden">
         <li>A</li>
         <li class="ghost">b</li>
@@ -91,8 +98,10 @@
     </div>
   </div>
 </nav>
+
+
 <div class="main">
-  <section>
+  <section id="firstSection" class="section">
     <div class="firstSection_profileContainer">
       <div class="firstSection_avatarContainer">
         <div>
@@ -103,7 +112,16 @@
       <div class="firstSection_positionContainer" id="positionContainer">Front-end Developer</div>
     </div>
   </section>
+
+
+  <section id="secondSection" class="section">
+    <div class="secondSection_aboutContainer">
+
+    </div>
+  </section>
 </div>
+
+
 <footer>
   <div class="mouse_scroll">
     <div class="mouse">
@@ -117,8 +135,14 @@
   </div>
   <div class="mouse_scrollText">scroll</div>
 </footer>
+
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+<script src="//cdn.polyfill.io/v1/polyfill.min.js" async defer></script>
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
 <!-- Google Analytics -->
 <script>
@@ -132,9 +156,6 @@
   ga('set', 'transport', 'beacon');
   ga('send', 'pageview')
 </script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/main.js"></script>
 
 </body>
 
