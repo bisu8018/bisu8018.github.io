@@ -278,7 +278,7 @@ body {
 }
 
 #dummySecond {
-  background: linear-gradient(to left bottom, #447ed6, #6a7ad9, #8b73d8, #aa6cd3, #c562c9);
+  background: linear-gradient(to right bottom, #447ed6, #6a7ad9, #8b73d8, #aa6cd3, #c562c9);
   opacity: 0;
 }
 
