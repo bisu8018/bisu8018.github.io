@@ -263,7 +263,7 @@ textarea {
    ========================================================================== */
 
 body {
-  background-image: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
   font-family: 'Noah', sans-serif;
 }
 
@@ -291,6 +291,7 @@ header {
   width: 100px;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .nav_wrapper {
@@ -340,7 +341,6 @@ header {
   margin-right: 3px;
   font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 .nav_wrapper .nav_hidden li.ghost {
@@ -664,12 +664,32 @@ footer {
   width: 100%;
 }
 
+.mouse_scrollText {
+  transform: rotate(-90deg);
+  position: absolute;
+  left: calc(50% - 28px);
+  bottom: 167px;
+  color: white;
+  font-family: 'Noah', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  margin: auto;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
 .mouse_scroll {
   display: block;
   margin: 8rem auto 2rem auto;
   width: 24px;
   height: 100px;
   bottom: 2rem;
+  cursor: default;
+}
+
+.mouse_scroll:hover + .mouse_scrollText {
+  opacity: 1;
 }
 
 .mouse_scroll > div:last-child {
