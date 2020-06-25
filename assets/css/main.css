@@ -662,16 +662,13 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 3rem 4rem;
 }
 
 .mouse_scroll {
   display: block;
-  margin: 125px auto 0 auto;
+  margin: 8rem auto 2rem auto;
   width: 24px;
   height: 100px;
-  left: 5rem;
-  position: absolute;
   bottom: 2rem;
 }
 
@@ -687,9 +684,9 @@ footer {
   transform: rotate(45deg);
   border-right: 1px solid white;
   border-bottom: 1px solid white;
-  margin: 0 0 11px 7px;
-  width: 6px;
-  height: 6px;
+  margin: 0 0 6px 5px;
+  width: 10px;
+  height: 10px;
 }
 
 
