@@ -27,7 +27,7 @@ const APP_CONFIG = {
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
 
-    const stopAnimation = function (){
+    const stopAnimation = function () {
       setTimeout(function () {
         isAnimating = false;
       }, 300);
@@ -86,13 +86,13 @@ const APP_CONFIG = {
       setWheelGuide();
     };
 
-    const bottomIsReached = $elem => {
+    const bottomIsReached = function ($elem) {
       let rect = $elem[0].getBoundingClientRect();
 
       return rect.bottom <= $(window).height();
     };
 
-    const topIsReached = $elem => {
+    const topIsReached = function ($elem) {
       let rect = $elem[0].getBoundingClientRect();
 
       return rect.top >= 0;
@@ -110,7 +110,7 @@ const APP_CONFIG = {
       wheel: function () {
         document.addEventListener(
           "wheel",
-          (event) => {
+          function (event) {
             let $currentSlide = $($slides[currentSlide]);
 
             if (isAnimating) {
