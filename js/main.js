@@ -33,16 +33,37 @@ const APP_CONFIG = {
       }, 300);
     };
 
+    const getCollectNumber = function (currentSlide) {
+      switch (currentSlide) {
+        case 0:
+        case 1:
+          return currentSlide;
+
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          return 2;
+
+        default:
+          return 3
+      }
+    };
+
     const selectNav = function () {
       $(".nav_wrapper div").removeClass("nav_clicked");
-      console.log(currentSlide);
       $(".nav_wrapper>div:nth-child(" +
-        Number((currentSlide >= 2 && currentSlide <= 5 ? 2 : currentSlide) + 1)
+        Number(getCollectNumber(currentSlide) + 1)
         + ")").addClass("nav_clicked");
     };
 
     const setDummy = function () {
-      for(let i=1; i <= $(".dummy").length -1; ++i) {
+      if (currentSlide === 0 || currentSlide === 1)
+        $("#dummyBase").css({"background": $("#dummy_1").css("background")})
+      else if (currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 5)
+        $("#dummyBase").css({"background": $("#dummy_3").css("background")})
+
+      for (let i = 1; i <= $(".dummy").length - 1; ++i) {
         $("#dummy_" + i).css({"opacity": "0"});
       }
 
@@ -70,7 +91,7 @@ const APP_CONFIG = {
           $(".mouse_scroll").css({"display": "block"});
           setTimeout(function () {
             $(".mouse_scroll").css({"opacity": "1"});
-          }, 500)
+          }, 500);
           break;
 
         case 1 :
@@ -78,7 +99,7 @@ const APP_CONFIG = {
           $(".mouse_scroll").css({"opacity": "0"});
           setTimeout(function () {
             $(".mouse_scroll").css({"display": "none"});
-          }, 500)
+          }, 500);
           break;
       }
     };
