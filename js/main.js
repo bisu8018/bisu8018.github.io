@@ -35,7 +35,7 @@ const APP_CONFIG = {
 
     const selectNav = function () {
       $(".nav_wrapper div").removeClass("nav_clicked");
-      $(`.nav_wrapper>div:nth-child(${currentSlide + 1})`).addClass("nav_clicked");
+      $(".nav_wrapper>div:nth-child(" + Number(currentSlide + 1) + ")").addClass("nav_clicked");
     };
 
     const setDummy = function () {
