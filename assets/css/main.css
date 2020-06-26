@@ -381,8 +381,9 @@ header {
 .nav_wrapper .nav_hidden li.ghost {
   opacity: 0;
   max-width: 0;
-  line-height: 2.2;
+  line-height: 2.4;
   letter-spacing: 3px;
+  font-size: 0.8rem;
 }
 
 .nav_wrapper .nav_hidden:hover li.ghost {
