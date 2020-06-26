@@ -1,6 +1,9 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+:root {
+  /* Set multi-line ainmated color */
+}
 
 html {
   color: #222;
@@ -282,6 +285,16 @@ body {
   opacity: 0;
 }
 
+#dummyThird {
+  background: #427fce;
+  opacity: 0;
+}
+
+#dummyFourth {
+  background: #7e42ce;
+  opacity: 0;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -373,15 +386,16 @@ header {
 }
 
 .nav_wrapper li:first-child {
-  margin-right: 3px;
-  font-size: 1.5rem;
+  margin-right: 5px;
+  font-size: 1.3rem;
+  font-family: Furore, serif;
   text-transform: uppercase;
 }
 
 .nav_wrapper .nav_hidden li.ghost {
   opacity: 0;
   max-width: 0;
-  line-height: 2.4;
+  line-height: 2.5;
   letter-spacing: 3px;
   font-size: 0.8rem;
 }
@@ -397,6 +411,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .firstSection_profileContainer {
@@ -940,4 +955,149 @@ footer {
   100% {
     opacity: 1;
   }
+}
+
+#secondSection {
+  justify-content: left !important;
+}
+
+.secondSection_aboutContainer {
+  padding: 4rem;
+  max-width: 50%;
+}
+
+.secondSection_aboutContainer div {
+  color: white;
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  cursor: default;
+}
+
+.secondSection_aboutContainer div span {
+  transition: all 0.5s;
+}
+
+.secondSection_aboutContainer div:not(.secondSection_sentenseWrapper):hover span {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.secondSection_sentenseWrapper div:first-child {
+  margin: 0;
+}
+
+.secondSection_sentenseWrapper div {
+  display: inline-block;
+}
+
+.thirdSection_portfolioContainer {
+  padding: 4rem;
+  text-align: left;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  cursor: default;
+}
+
+.thirdSection_company {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.thirdSection_linkWrapper {
+  display: inline-block;
+}
+
+.thirdSection_linkWrapper a {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+}
+
+.thirdSection_position {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.thirdSection_dates {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.thirdSection_careerTitle {
+  font-weight: bold;
+}
+
+.thirdSection_skillContainer ul {
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+}
+
+.thirdSection_careerList li {
+  margin-bottom: 7px;
+}
+
+.thirdSection_careerList li:hover {
+  font-weight: bold;
+}
+
+.thirdSection_skillContainer {
+  position: relative;
+}
+
+.thirdSection_skillTitle {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.thirdSection_skillList span {
+  transition: all 0.5s;
+}
+
+.thirdSection_skillList span:hover {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.hover {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.hover:before, .hover:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  margin: 5px 0 0;
+  transition: all 0.2s ease-in-out;
+  transition-duration: 0.4s;
+  opacity: 0;
+  background-color: #ffffff;
+}
+
+.hover.hover-1:before, .hover.hover-1:after {
+  left: 0;
+}
+
+.thirdSection_linkWrapper:hover .hover:before, #examples .thirdSection_linkWrapper:hover .hover:after {
+  width: 100%;
+  opacity: 1;
+}
+
+.thirdSection_linkWrapper:hover {
+  width: 50%;
 }

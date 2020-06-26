@@ -1,5 +1,5 @@
 const APP_CONFIG = {
-  debug: true
+  debug: false
 };
 
 
@@ -17,7 +17,7 @@ const APP_CONFIG = {
   console.log('[Linkedin]\nhttps://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/');
   console.log('[Velog]\nhttps://velog.io/@bisu8018');
   console.log('[Email - Naver] \nbisu8018@naver.com');
-  console.log('[Email -Gmail] \nnabidarang@gmail.com');
+  console.log('[Email - Gmail] \nnabidarang@gmail.com');
 
 
   // JQUERY script
@@ -35,7 +35,9 @@ const APP_CONFIG = {
 
     const selectNav = function () {
       $(".nav_wrapper div").removeClass("nav_clicked");
-      $(".nav_wrapper>div:nth-child(" + Number(currentSlide + 1) + ")").addClass("nav_clicked");
+      $(".nav_wrapper>div:nth-child(" +
+        Number((currentSlide >= 2 && currentSlide <= 4 ? 2 : currentSlide) + 1)
+        + ")").addClass("nav_clicked");
     };
 
     const setDummy = function () {
@@ -43,10 +45,28 @@ const APP_CONFIG = {
         case 0 :
           $("#dummyFirst").css({"opacity": "1"});
           $("#dummySecond").css({"opacity": "0"});
+          $("#dummyThird").css({"opacity": "0"});
+          $("#dummyFourth").css({"opacity": "0"});
           break;
 
         case 1 :
           $("#dummySecond").css({"opacity": "1"});
+          $("#dummyFirst").css({"opacity": "0"});
+          $("#dummyThird").css({"opacity": "0"});
+          $("#dummyFourth").css({"opacity": "0"});
+          break;
+
+        case 2 :
+          $("#dummyThird").css({"opacity": "1"});
+          $("#dummySecond").css({"opacity": "0"});
+          $("#dummyFirst").css({"opacity": "0"});
+          $("#dummyFourth").css({"opacity": "0"});
+          break;
+
+        case 3 :
+          $("#dummyFourth").css({"opacity": "1"});
+          $("#dummyThird").css({"opacity": "0"});
+          $("#dummySecond").css({"opacity": "0"});
           $("#dummyFirst").css({"opacity": "0"});
           break;
       }
@@ -60,6 +80,7 @@ const APP_CONFIG = {
           break;
 
         case 1 :
+        default :
           $(".h_logo div:first-child").css({"opacity": "0"});
           $(".h_logo div:last-child").css({"opacity": "1"});
           break;
@@ -69,11 +90,18 @@ const APP_CONFIG = {
     const setWheelGuide = function () {
       switch (currentSlide) {
         case 0 :
-          $(".mouse_scroll").css({"opacity": "1"});
+          $(".mouse_scroll").css({"display": "block"});
+          setTimeout(function () {
+            $(".mouse_scroll").css({"opacity": "1"});
+          }, 500)
           break;
 
         case 1 :
+        default :
           $(".mouse_scroll").css({"opacity": "0"});
+          setTimeout(function () {
+            $(".mouse_scroll").css({"display": "none"});
+          }, 500)
           break;
       }
     };
@@ -118,9 +146,9 @@ const APP_CONFIG = {
               return;
             }
 
-            let direction = -event.deltaY;
+            let directionY = -event.deltaY;
 
-            if (direction < 0) {
+            if (directionY < 0) {
               // next
               if (currentSlide + 1 >= $slides.length) return;
               if (!bottomIsReached($currentSlide)) return;
