@@ -27,57 +27,58 @@ const APP_CONFIG = {
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
 
-    const stopAnimation = () =>
-      setTimeout(() => {
+    const stopAnimation = function (){
+      setTimeout(function () {
         isAnimating = false;
       }, 300);
+    }
 
-    const selectNav = () => {
+    const selectNav = function () {
       $(".nav_wrapper div").removeClass("nav_clicked");
       $(`.nav_wrapper>div:nth-child(${currentSlide + 1})`).addClass("nav_clicked");
     };
 
-    const setDummy = () => {
+    const setDummy = function () {
       switch (currentSlide) {
         case 0 :
-          $("#dummyFirst").css({"opacity":"1"});
-          $("#dummySecond").css({"opacity":"0"});
+          $("#dummyFirst").css({"opacity": "1"});
+          $("#dummySecond").css({"opacity": "0"});
           break;
 
         case 1 :
-          $("#dummySecond").css({"opacity":"1"});
-          $("#dummyFirst").css({"opacity":"0"});
+          $("#dummySecond").css({"opacity": "1"});
+          $("#dummyFirst").css({"opacity": "0"});
           break;
       }
     };
 
-    const setLogo = () => {
+    const setLogo = function () {
       switch (currentSlide) {
         case 0 :
-          $(".h_logo div:first-child").css({"opacity":"1"});
-          $(".h_logo div:last-child").css({"opacity":"0"});
+          $(".h_logo div:first-child").css({"opacity": "1"});
+          $(".h_logo div:last-child").css({"opacity": "0"});
           break;
 
         case 1 :
-          $(".h_logo div:first-child").css({"opacity":"0"});
-          $(".h_logo div:last-child").css({"opacity":"1"});
+          $(".h_logo div:first-child").css({"opacity": "0"});
+          $(".h_logo div:last-child").css({"opacity": "1"});
           break;
       }
     };
 
-    const setWheelGuide = () => {
+    const setWheelGuide = function () {
       switch (currentSlide) {
         case 0 :
-          $(".mouse_scroll").css({"opacity":"1"});
+          $(".mouse_scroll").css({"opacity": "1"});
           break;
 
         case 1 :
-          $(".mouse_scroll").css({"opacity":"0"});
+          $(".mouse_scroll").css({"opacity": "0"});
           break;
       }
     };
 
-    const checkAnimation = () => {
+    const checkAnimation = function () {
       stopAnimation();
       selectNav();
       setDummy();
@@ -97,7 +98,7 @@ const APP_CONFIG = {
       return rect.top >= 0;
     };
 
-    const setProfileStyle = () => {
+    const setProfileStyle = function () {
       let nameContainer = $("#nameContainer");
       let positionContainer = $("#positionContainer");
 
@@ -106,68 +107,70 @@ const APP_CONFIG = {
     };
 
     const addEventListener = {
-      wheel: () => document.addEventListener(
-        "wheel",
-        (event) => {
-          let $currentSlide = $($slides[currentSlide]);
+      wheel: function () {
+        document.addEventListener(
+          "wheel",
+          (event) => {
+            let $currentSlide = $($slides[currentSlide]);
 
-          if (isAnimating) {
-            event.preventDefault();
-            return;
-          }
+            if (isAnimating) {
+              event.preventDefault();
+              return;
+            }
 
-          let direction = -event.deltaY;
+            let direction = -event.deltaY;
 
-          if (direction < 0) {
-            // next
-            if (currentSlide + 1 >= $slides.length) return;
-            if (!bottomIsReached($currentSlide)) return;
+            if (direction < 0) {
+              // next
+              if (currentSlide + 1 >= $slides.length) return;
+              if (!bottomIsReached($currentSlide)) return;
 
-            event.preventDefault();
-            currentSlide++;
+              event.preventDefault();
+              currentSlide++;
 
-            let $slide = $($slides[currentSlide]);
-            let offsetTop = $slide.offset().top;
+              let $slide = $($slides[currentSlide]);
+              let offsetTop = $slide.offset().top;
 
-            isAnimating = true;
+              isAnimating = true;
 
-            $("html, body").animate(
-              {
-                scrollTop: offsetTop
-              },
-              1000,
-              checkAnimation
-            );
-          } else {
-            // back
-            if (currentSlide - 1 < 0) return;
-            if (!topIsReached($currentSlide)) return;
+              $("html, body").animate(
+                {
+                  scrollTop: offsetTop
+                },
+                1000,
+                checkAnimation
+              );
+            } else {
+              // back
+              if (currentSlide - 1 < 0) return;
+              if (!topIsReached($currentSlide)) return;
 
-            event.preventDefault();
-            currentSlide--;
+              event.preventDefault();
+              currentSlide--;
 
-            let $slide = $($slides[currentSlide]);
-            let offsetTop = $slide.offset().top;
-            isAnimating = true;
+              let $slide = $($slides[currentSlide]);
+              let offsetTop = $slide.offset().top;
+              isAnimating = true;
 
-            $("html, body").animate(
-              {
-                scrollTop: offsetTop
-              },
-              1000,
-              checkAnimation
-            );
-          }
-        },
-        {passive: false}
-      )
+              $("html, body").animate(
+                {
+                  scrollTop: offsetTop
+                },
+                1000,
+                checkAnimation
+              );
+            }
+          },
+          {passive: false}
+        )
+      }
     };
 
-    const setAddEventListener = () => {
+    const setAddEventListener = function () {
       addEventListener.wheel();
     };
 
-    const init = () => {
+    const init = function () {
       if (APP_CONFIG.debug) console.log("\n\n============\nSTART INIT");
 
       setProfileStyle();

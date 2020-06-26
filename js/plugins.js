@@ -1,7 +1,7 @@
 // Avoid `console` errors in browsers that lack a console.
 (function () {
   let method;
-  let noop = () => {
+  let noop = function() {
   };
   let methods = [
     'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
