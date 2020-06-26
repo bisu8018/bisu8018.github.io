@@ -31,45 +31,22 @@ const APP_CONFIG = {
       setTimeout(function () {
         isAnimating = false;
       }, 300);
-    }
+    };
 
     const selectNav = function () {
       $(".nav_wrapper div").removeClass("nav_clicked");
+      console.log(currentSlide);
       $(".nav_wrapper>div:nth-child(" +
-        Number((currentSlide >= 2 && currentSlide <= 4 ? 2 : currentSlide) + 1)
+        Number((currentSlide >= 2 && currentSlide <= 5 ? 2 : currentSlide) + 1)
         + ")").addClass("nav_clicked");
     };
 
     const setDummy = function () {
-      switch (currentSlide) {
-        case 0 :
-          $("#dummyFirst").css({"opacity": "1"});
-          $("#dummySecond").css({"opacity": "0"});
-          $("#dummyThird").css({"opacity": "0"});
-          $("#dummyFourth").css({"opacity": "0"});
-          break;
-
-        case 1 :
-          $("#dummySecond").css({"opacity": "1"});
-          $("#dummyFirst").css({"opacity": "0"});
-          $("#dummyThird").css({"opacity": "0"});
-          $("#dummyFourth").css({"opacity": "0"});
-          break;
-
-        case 2 :
-          $("#dummyThird").css({"opacity": "1"});
-          $("#dummySecond").css({"opacity": "0"});
-          $("#dummyFirst").css({"opacity": "0"});
-          $("#dummyFourth").css({"opacity": "0"});
-          break;
-
-        case 3 :
-          $("#dummyFourth").css({"opacity": "1"});
-          $("#dummyThird").css({"opacity": "0"});
-          $("#dummySecond").css({"opacity": "0"});
-          $("#dummyFirst").css({"opacity": "0"});
-          break;
+      for(let i=1; i <= $(".dummy").length -1; ++i) {
+        $("#dummy_" + i).css({"opacity": "0"});
       }
+
+      $("#dummy_" + Number(currentSlide + 1)).css({"opacity": "1"});
     };
 
     const setLogo = function () {

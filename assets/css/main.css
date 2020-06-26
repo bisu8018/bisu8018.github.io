@@ -275,23 +275,33 @@ body {
   background: #77b5f4;
 }
 
-#dummyFirst {
-  background: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+#dummy_1 {
+  background: linear-gradient(to right top, #3b9fd7, #1b95de, #008ae3, #197de5, #3b6ee4, #5166e4, #665ee3, #7953e0, #8a50e2, #9a4ce4, #aa47e5, #ba41e5);
   opacity: 0;
 }
 
-#dummySecond {
+#dummy_2 {
   background: linear-gradient(to right bottom, #447ed6, #6a7ad9, #8b73d8, #aa6cd3, #c562c9);
   opacity: 0;
 }
 
-#dummyThird {
-  background: #427fce;
+#dummy_3 {
+  background: #9172d7;
   opacity: 0;
 }
 
-#dummyFourth {
-  background: #7e42ce;
+#dummy_4 {
+  background: #7b76d8;
+  opacity: 0;
+}
+
+#dummy_5 {
+  background: #6c79d9;
+  opacity: 0;
+}
+
+#dummy_6 {
+  background: #497dd6;
   opacity: 0;
 }
 
@@ -344,7 +354,7 @@ header {
 
 .nav_wrapper {
   width: 100%;
-  height: 80%;
+  height: 70%;
 }
 
 .nav_clicked {
@@ -383,21 +393,21 @@ header {
   transition: all 0.5s ease-in-out;
   max-width: 2em;
   color: white;
+  text-transform: uppercase;
 }
 
 .nav_wrapper li:first-child {
-  margin-right: 5px;
+  margin-right: 2px;
   font-size: 1.3rem;
-  font-family: Furore, serif;
   text-transform: uppercase;
 }
 
 .nav_wrapper .nav_hidden li.ghost {
   opacity: 0;
   max-width: 0;
-  line-height: 2.5;
-  letter-spacing: 3px;
-  font-size: 0.8rem;
+  line-height: 3;
+  letter-spacing: 2px;
+  font-size: 0.5rem;
 }
 
 .nav_wrapper .nav_hidden:hover li.ghost {
@@ -471,7 +481,7 @@ header {
 }
 
 .firstSection_nameContainer {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   color: white;
   font-size: 1.3rem;
   text-transform: uppercase;
@@ -957,13 +967,17 @@ footer {
   }
 }
 
-#secondSection {
+#secondSection,
+#thirdSection ,
+#fourthSection,
+#fifthSection ,
+#sixthSection {
   justify-content: left !important;
 }
 
 .secondSection_aboutContainer {
   padding: 4rem;
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .secondSection_aboutContainer div {
@@ -985,7 +999,7 @@ footer {
   font-size: 0.9rem;
 }
 
-.secondSection_sentenseWrapper div:first-child {
+.secondSection_sentenseWrapper div {
   margin: 0;
 }
 
@@ -1002,6 +1016,7 @@ footer {
   font-size: 0.8rem;
   line-height: 1.7;
   cursor: default;
+  max-width: 70%;
 }
 
 .thirdSection_company {
@@ -1042,10 +1057,23 @@ footer {
 }
 
 .thirdSection_careerList li {
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 
 .thirdSection_careerList li:hover {
+  font-weight: bold;
+}
+
+.thirdSection_companyList li {
+  margin-bottom: 8px;
+}
+
+.thirdSection_companyList li span {
+  margin-right: 0.6rem;
+  transition: all 0.5s;
+}
+
+.thirdSection_companyList li span:hover {
   font-weight: bold;
 }
 
