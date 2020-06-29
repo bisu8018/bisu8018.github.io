@@ -1312,7 +1312,7 @@ footer {
 }
 
 .thirdSection_skillList span {
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 
 .thirdSection_skillList span:hover {
