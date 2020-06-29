@@ -2,7 +2,15 @@
    Base styles: opinionated defaults
    ========================================================================== */
 :root {
-  /* Set multi-line ainmated color */
+  /*Size per each device*/
+  --sm-min-width: 576px;
+  --sm-max-width: 575px;
+  --md-min-width: 768px;
+  --md-max-width: 767px;
+  --lg-min-width: 992px;
+  --lg-max-width: 991px;
+  --xl-min-width: 1200px;
+  --xl-max-width: 1199px;
 }
 
 html {
@@ -314,8 +322,22 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% - 8rem);
   padding: 3rem 4rem;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 2rem 3rem;
+    width: calc(100% - 6rem);
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 1rem 2rem;
+    width: calc(100% - 4rem);
+  }
 }
 
 .h_logo {
@@ -325,6 +347,27 @@ header {
   display: inline-block;
   cursor: pointer;
   position: relative;
+}
+
+@media (max-width: 991px) {
+  .h_logo {
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .h_logo {
+    right: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .h_logo {
+    right: 1rem;
+    top: 0.5rem;
+  }
 }
 
 .h_logo div {
@@ -355,6 +398,18 @@ header {
   display: flex;
   align-items: center;
   z-index: 1;
+}
+
+@media (max-width: 991px) {
+  #nav {
+    padding: 0 1rem 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #nav {
+    display: none;
+  }
 }
 
 .nav_wrapper {
@@ -405,6 +460,14 @@ header {
   margin-right: 2px;
   font-size: 1.3rem;
   text-transform: uppercase;
+}
+
+.nav_wrapper ul:hover li:first-child {
+  font-weight: bold;
+}
+
+.nav_wrapper .nav_clicked li:first-child {
+  font-weight: bold;
 }
 
 .nav_wrapper .nav_hidden li.ghost {
@@ -745,6 +808,18 @@ footer {
   opacity: 0;
 }
 
+@media (max-width: 991px) {
+  .mouse_scrollText {
+    bottom: 150px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mouse_scrollText {
+    bottom: 135px;
+  }
+}
+
 .mouse_scroll {
   display: block;
   margin: 8rem auto 2rem auto;
@@ -754,6 +829,20 @@ footer {
   cursor: default;
   transition: all 0.5s ease-in-out;
   opacity: 0;
+}
+
+@media (max-width: 991px) {
+  .mouse_scroll {
+    bottom: 1rem;
+    margin: 8rem auto 1rem auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .mouse_scroll {
+    bottom: 1rem;
+    margin: 8rem auto 0 auto;
+  }
 }
 
 .mouse_scroll:hover + .mouse_scrollText {
@@ -973,9 +1062,9 @@ footer {
 }
 
 #secondSection,
-#thirdSection ,
+#thirdSection,
 #fourthSection,
-#fifthSection ,
+#fifthSection,
 #sixthSection {
   justify-content: left !important;
 }
@@ -983,6 +1072,27 @@ footer {
 .secondSection_aboutContainer {
   padding: 4rem;
   max-width: 60%;
+}
+
+@media (max-width: 991px) {
+  .secondSection_aboutContainer {
+    padding: 3rem;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .secondSection_aboutContainer {
+    padding: 2rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .secondSection_aboutContainer {
+    padding: 1rem;
+    max-width: 100%;
+  }
 }
 
 .secondSection_aboutContainer div {
@@ -1024,9 +1134,39 @@ footer {
   max-width: 70%;
 }
 
+@media (max-width: 991px) {
+  .thirdSection_portfolioContainer {
+    padding: 3rem;
+    font-size: 0.7rem;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .thirdSection_portfolioContainer {
+    padding: 2rem;
+    font-size: 0.6rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .thirdSection_portfolioContainer {
+    padding: 1rem;
+    font-size: 0.6rem;
+    max-width: 100%;
+  }
+}
+
 .thirdSection_company {
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .thirdSection_company {
+    font-size: 1.3rem;
+  }
 }
 
 .thirdSection_linkWrapper {
@@ -1040,15 +1180,37 @@ footer {
   border-bottom: 1px solid white;
 }
 
+.thirdSection_github {
+  width: 30px;
+}
+
 .thirdSection_position {
   font-size: 1.4rem;
   line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .thirdSection_position {
+    font-size: 1.3rem;
+  }
 }
 
 .thirdSection_dates {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .thirdSection_dates {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .thirdSection_dates {
+    font-size: 1.3rem;
+  }
 }
 
 .thirdSection_careerTitle {
@@ -1063,6 +1225,22 @@ footer {
 
 .thirdSection_careerList li {
   margin-bottom: 8px;
+}
+
+@media (max-width: 991px) {
+  .thirdSection_careerList li {
+    margin-bottom: 4px;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .thirdSection_careerList li:nth-child(7),
+  .thirdSection_careerList li:nth-child(8),
+  .thirdSection_careerList li:nth-child(9),
+  .thirdSection_careerList li:nth-child(10) {
+    display: none;
+  }
 }
 
 .thirdSection_careerList li:hover {
@@ -1090,6 +1268,27 @@ footer {
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 991px) {
+  .thirdSection_skillTitle {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .thirdSection_skillTitle {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .thirdSection_skillTitle {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .thirdSection_skillList span {
@@ -1131,6 +1330,36 @@ footer {
   opacity: 1;
 }
 
-.thirdSection_linkWrapper:hover {
-  width: 50%;
+.thirdSection_githubContainer {
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .thirdSection_githubContainer {
+    padding-top: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .thirdSection_githubContainer {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .thirdSection_githubContainer {
+    padding-top: 2.8rem;
+  }
+}
+
+.thirdSection_githubTitle {
+  font-weight: bold;
+}
+
+.thirdSection_githubList a {
+  color: white;
+}
+
+.thirdSection_githubList a:hover {
+  font-weight: bold;
 }

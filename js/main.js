@@ -132,6 +132,21 @@ const APP_CONFIG = {
       positionContainer.html(positionContainer.text().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
     };
 
+    const scrollToTop = function () {
+      let $slide = $($slides[currentSlide]);
+      let offsetTop = $slide.offset().top;
+
+      isAnimating = true;
+
+      $("html, body").animate(
+        {
+          scrollTop: offsetTop
+        },
+        1000,
+        checkAnimation
+      );
+    };
+
     const addEventListener = {
       wheel: function () {
         document.addEventListener(
@@ -154,18 +169,7 @@ const APP_CONFIG = {
               event.preventDefault();
               currentSlide++;
 
-              let $slide = $($slides[currentSlide]);
-              let offsetTop = $slide.offset().top;
-
-              isAnimating = true;
-
-              $("html, body").animate(
-                {
-                  scrollTop: offsetTop
-                },
-                1000,
-                checkAnimation
-              );
+              scrollToTop();
             } else {
               // back
               if (currentSlide - 1 < 0) return;
@@ -174,17 +178,7 @@ const APP_CONFIG = {
               event.preventDefault();
               currentSlide--;
 
-              let $slide = $($slides[currentSlide]);
-              let offsetTop = $slide.offset().top;
-              isAnimating = true;
-
-              $("html, body").animate(
-                {
-                  scrollTop: offsetTop
-                },
-                1000,
-                checkAnimation
-              );
+              scrollToTop();
             }
           },
           {passive: false}
@@ -219,5 +213,26 @@ const APP_CONFIG = {
     };
 
     init();
+
+    $("#navHome").click(function () {
+      currentSlide = 0;
+      scrollToTop();
+    });
+
+    $("#navAbout").click(function () {
+      currentSlide = 1;
+      scrollToTop();
+    });
+
+    $("#navProject").click(function () {
+      currentSlide = 2;
+      scrollToTop();
+    });
+
+    $("#navContact").click(function () {
+      currentSlide = 6;
+      scrollToTop();
+    });
+
   });
 })(jQuery);

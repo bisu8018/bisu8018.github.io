@@ -352,3 +352,21 @@ template {
 ul {
   list-style-type: none;
 }
+
+@media (max-width: 991px) {
+  ul {
+    padding-inline-start: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  ul {
+    padding-inline-start: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  ul {
+    padding-inline-start: 10px;
+  }
+}
