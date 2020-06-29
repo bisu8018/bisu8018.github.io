@@ -324,6 +324,7 @@ header {
   left: 0;
   width: calc(100% - 8rem);
   padding: 3rem 4rem;
+  z-index: 1;
 }
 
 @media (max-width: 991px) {

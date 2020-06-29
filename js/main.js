@@ -222,6 +222,11 @@ const APP_CONFIG = {
 
     init();
 
+    $("header").click(function () {
+      currentSlide = 0;
+      scrollToTop();
+    });
+
     $("#navHome").click(function () {
       currentSlide = 0;
       scrollToTop();
