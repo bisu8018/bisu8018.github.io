@@ -365,7 +365,7 @@ header {
 
 @media (max-width: 575px) {
   .h_logo {
-    right: 1rem;
+    right: 1.4rem;
     top: 0.5rem;
   }
 }
@@ -391,6 +391,7 @@ header {
 
 #nav {
   position: fixed;
+  opacity: 0;
   right: 0;
   padding: 0 2rem 0 0;
   height: 100%;
@@ -398,6 +399,7 @@ header {
   display: flex;
   align-items: center;
   z-index: 1;
+  transition: all 0.3s;
 }
 
 @media (max-width: 991px) {
@@ -408,13 +410,22 @@ header {
 
 @media (max-width: 767px) {
   #nav {
-    display: none;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    bottom: 0;
   }
 }
 
 .nav_wrapper {
   width: 100%;
   height: 70%;
+}
+
+@media (max-width: 767px) {
+  .nav_wrapper {
+    display: flex;
+  }
 }
 
 .nav_clicked {
@@ -437,6 +448,12 @@ header {
 
 .nav_wrapper .nav_clicked {
   min-height: 100px;
+}
+
+@media (max-width: 767px) {
+  .nav_wrapper .nav_clicked {
+    min-height: auto;
+  }
 }
 
 .nav_wrapper ul {

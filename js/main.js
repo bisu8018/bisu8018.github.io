@@ -57,6 +57,10 @@ const APP_CONFIG = {
         + ")").addClass("nav_clicked");
     };
 
+    const hideNav = function () {
+      $("#nav").css({"opacity": (currentSlide === 0 ? "0" : "1")})
+    };
+
     const setDummy = function () {
       if (currentSlide === 0 || currentSlide === 1)
         $("#dummyBase").css({"background": $("#dummy_1").css("background")})
@@ -106,6 +110,7 @@ const APP_CONFIG = {
 
     const checkAnimation = function () {
       stopAnimation();
+      hideNav();
       selectNav();
       setDummy();
       setLogo();
@@ -198,6 +203,9 @@ const APP_CONFIG = {
 
       selectNav();
       if (APP_CONFIG.debug) console.log("SET NAV SELECTED");
+
+      hideNav();
+      if (APP_CONFIG.debug) console.log("SET NAV HIDE");
 
       setAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
