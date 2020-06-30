@@ -57,6 +57,10 @@ const APP_CONFIG = {
         + ")").addClass("nav_clicked");
     };
 
+    const hideNav = function () {
+      $("#nav").css({"opacity": (currentSlide === 0 ? "0" : "1")})
+    };
+
     const setDummy = function () {
       if (currentSlide === 0 || currentSlide === 1)
         $("#dummyBase").css({"background": $("#dummy_1").css("background")})
@@ -106,6 +110,7 @@ const APP_CONFIG = {
 
     const checkAnimation = function () {
       stopAnimation();
+      hideNav();
       selectNav();
       setDummy();
       setLogo();
@@ -132,6 +137,21 @@ const APP_CONFIG = {
       positionContainer.html(positionContainer.text().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
     };
 
+    const scrollToTop = function () {
+      let $slide = $($slides[currentSlide]);
+      let offsetTop = $slide.offset().top;
+
+      isAnimating = true;
+
+      $("html, body").animate(
+        {
+          scrollTop: offsetTop
+        },
+        1000,
+        checkAnimation
+      );
+    };
+
     const addEventListener = {
       wheel: function () {
         document.addEventListener(
@@ -154,18 +174,7 @@ const APP_CONFIG = {
               event.preventDefault();
               currentSlide++;
 
-              let $slide = $($slides[currentSlide]);
-              let offsetTop = $slide.offset().top;
-
-              isAnimating = true;
-
-              $("html, body").animate(
-                {
-                  scrollTop: offsetTop
-                },
-                1000,
-                checkAnimation
-              );
+              scrollToTop();
             } else {
               // back
               if (currentSlide - 1 < 0) return;
@@ -174,17 +183,7 @@ const APP_CONFIG = {
               event.preventDefault();
               currentSlide--;
 
-              let $slide = $($slides[currentSlide]);
-              let offsetTop = $slide.offset().top;
-              isAnimating = true;
-
-              $("html, body").animate(
-                {
-                  scrollTop: offsetTop
-                },
-                1000,
-                checkAnimation
-              );
+              scrollToTop();
             }
           },
           {passive: false}
@@ -205,6 +204,9 @@ const APP_CONFIG = {
       selectNav();
       if (APP_CONFIG.debug) console.log("SET NAV SELECTED");
 
+      hideNav();
+      if (APP_CONFIG.debug) console.log("SET NAV HIDE");
+
       setAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
 
@@ -219,5 +221,31 @@ const APP_CONFIG = {
     };
 
     init();
+
+    $("header").click(function () {
+      currentSlide = 0;
+      scrollToTop();
+    });
+
+    $("#navHome").click(function () {
+      currentSlide = 0;
+      scrollToTop();
+    });
+
+    $("#navAbout").click(function () {
+      currentSlide = 1;
+      scrollToTop();
+    });
+
+    $("#navProject").click(function () {
+      currentSlide = 2;
+      scrollToTop();
+    });
+
+    $("#navContact").click(function () {
+      currentSlide = 6;
+      scrollToTop();
+    });
+
   });
 })(jQuery);
