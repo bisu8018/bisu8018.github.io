@@ -36,13 +36,14 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 </head>
 
 <body>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/vendor/three.js"></script>
+
 <div class="dummy" id="dummyBase"></div>
 <div class="dummy" id="dummy_1"></div>
 <div class="dummy" id="dummy_2"></div>
@@ -166,12 +167,12 @@
         <ul class="thirdSection_careerList">
           <li>ES6 ~ Lodash, using modern JavaScript practice</li>
           <li>React js + Express and Next js based reactive CSR/SSR SPA construction</li>
-          <li>Apply GraphQL ~ Apollo Client</li>
+          <!--<li>Apply GraphQL ~ Apollo Client</li>-->
           <li>Webpack build system construction and project structure design</li>
           <li>JEST, Enzyme based TDD progress</li>
           <li>SEO (Google), Open Graph, oEmbed application and management</li>
           <li>Asset management such as font, sprite image, and SCSS preprocessor applied</li>
-          <li>Client profiling performance tuning</li>
+          <!--<li>Client profiling performance tuning</li>-->
           <li>AWS (EC2, ECS, EKS, Lambda, blue/green distribution, etc.) and Docker + Kubernetes applied</li>
           <li>Polaris Office ~ Polaris Share webview SDK integration, client development</li>
         </ul>
@@ -201,7 +202,8 @@
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/bisu8018/document-share-platform-reactjs" title="Link to github">
+            <a target="_blank" href="https://github.com/bisu8018/document-share-platform-reactjs"
+               title="Link to github">
               document-share-platform-reactjs
             </a>
           </li>
@@ -215,7 +217,8 @@
     <div class="thirdSection_portfolioContainer">
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
-          <a target="_blank" href="https://www.rocketpunch.com/companies/jakin-1/" title="link to jakin" class="hover hover-1">jakin</a>
+          <a target="_blank" href="https://www.rocketpunch.com/companies/jakin-1/" title="link to jakin"
+             class="hover hover-1">jakin</a>
         </div>
       </div>
       <div class="thirdSection_position">
@@ -267,7 +270,8 @@
     <div class="thirdSection_portfolioContainer">
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
-          <a target="_blank" href="https://inca.co.kr/" title="link to inca internet" class="hover hover-1">inca internet</a>
+          <a target="_blank" href="https://inca.co.kr/" title="link to inca internet" class="hover hover-1">inca
+            internet</a>
         </div>
       </div>
       <div class="thirdSection_position">
@@ -367,6 +371,8 @@
       <div class="col-12 col-sm-3">email</div>
     </div>
   </section>
+
+  <div id="threeContainer" class="meshCanvas"></div>
 </div>
 
 

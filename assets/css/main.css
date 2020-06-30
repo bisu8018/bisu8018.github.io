@@ -480,7 +480,7 @@ header {
   text-transform: uppercase;
 }
 
-.nav_wrapper ul:hover li:first-child ,
+.nav_wrapper ul:hover li:first-child,
 .nav_wrapper ul:active li:first-child {
   font-weight: bold;
 }
@@ -497,7 +497,7 @@ header {
   font-size: 0.5rem;
 }
 
-.nav_wrapper .nav_hidden:hover li.ghost ,
+.nav_wrapper .nav_hidden:hover li.ghost,
 .nav_wrapper .nav_hidden:active li.ghost {
   opacity: 1;
   max-width: 2em;
@@ -1383,4 +1383,13 @@ footer {
 
 .thirdSection_githubList a:hover {
   font-weight: bold;
+}
+
+.meshCanvas {
+  transition: all 0.5s ease-in-out;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }

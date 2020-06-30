@@ -370,3 +370,7 @@ ul {
     padding-inline-start: 10px;
   }
 }
+
+canvas {
+  display: block;
+}
