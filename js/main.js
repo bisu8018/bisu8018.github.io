@@ -35,9 +35,6 @@ const APP_CONFIG = {
 
   // Render Lock Mesh
   const getLockMashes = function () {
-//81359a
-//3e4fd2
-    //
     // body of lock
     let material = new THREE.LineBasicMaterial({color: 0xffffff});
     let material2 = new THREE.LineBasicMaterial({color: 0xffffff});
@@ -283,6 +280,102 @@ const APP_CONFIG = {
   }
 
 
+  // Render Document Mesh
+  const getDocumentMashes = function () {
+    // document
+    let material = new THREE.LineBasicMaterial({color: 0xffffff});
+    let geometry = new THREE.BufferGeometry();
+    let position = [];
+
+    let width = 10;
+    let height = 14;
+    let depth = 0.5;
+
+
+    position.push(
+      -width, -height, -depth,
+      -width, height, -depth,
+
+      -width, height, -depth,
+      width, height, -depth,
+
+      width, height, -depth,
+      width, -height, -depth,
+
+      width, -height, -depth,
+      -width, -height, -depth,
+
+      -width, -height, depth,
+      -width, height, depth,
+
+      -width, height, depth,
+      width, height, depth,
+
+      -width, height, depth,
+      width, height, depth,
+
+      width, height, depth,
+      width, -height, depth,
+
+      width, -height, depth,
+      -width, -height, depth,
+
+      -width, -height, -depth,
+      -width, -height, depth,
+    );
+
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
+
+    scene.add(new THREE.Line(geometry, material));
+
+    // Line
+    let materialLine1 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let materialLine2 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let materialLine3 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let materialLine4 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let geometryLine1 = new THREE.BufferGeometry();
+    let geometryLine2 = new THREE.BufferGeometry();
+    let geometryLine3 = new THREE.BufferGeometry();
+    let geometryLine4 = new THREE.BufferGeometry();
+    let positionLine1 = [];
+    let positionLine2 = [];
+    let positionLine3 = [];
+    let positionLine4 = [];
+
+    positionLine1.push(
+      -width*0.8, height*0.7, depth,
+      width*0.8, height*0.7,depth
+    );
+    positionLine2.push(
+      -width*0.8, height*0.5, depth,
+      width*0.8, height*0.5,depth
+    );
+    positionLine3.push(
+      -width*0.8, height*0.3, depth,
+      width*0.8, height*0.3,depth
+    );
+    positionLine4.push(
+      -width*0.8, height*0.1, depth,
+      width*0.8, height*0.1,depth
+    );
+
+    geometryLine1.setAttribute('position', new THREE.Float32BufferAttribute(positionLine1, 3));
+    geometryLine2.setAttribute('position', new THREE.Float32BufferAttribute(positionLine2, 3));
+    geometryLine3.setAttribute('position', new THREE.Float32BufferAttribute(positionLine3, 3));
+    geometryLine4.setAttribute('position', new THREE.Float32BufferAttribute(positionLine4, 3));
+
+    let line1 = new THREE.Line(geometryLine1, materialLine1)
+    let line2 = new THREE.Line(geometryLine2, materialLine2)
+    let line3 = new THREE.Line(geometryLine3, materialLine3)
+    let line4 = new THREE.Line(geometryLine4, materialLine4)
+
+    scene.add(line1);
+    scene.add(line2);
+    scene.add(line3);
+    scene.add(line4);
+  }
+
+
   const render = function () {
     if (camera.position.x >= limitCameraAngle && mouseX < 0)
       camera.position.x = limitCameraAngle
@@ -454,7 +547,7 @@ const APP_CONFIG = {
       switch (currentSlide) {
         case 2 :
           clearThreeScene()
-          getLockMashes()
+          getDocumentMashes()
           break;
 
         case 3 :
