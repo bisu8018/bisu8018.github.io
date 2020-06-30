@@ -126,7 +126,7 @@ const APP_CONFIG = {
     triangle.position.set(0, -2.5, 3);
     scene.add(circle);
     scene.add(triangle);
-  }
+  };
 
 
   // Render Blockchain Mesh
@@ -197,20 +197,20 @@ const APP_CONFIG = {
     geometry3.setAttribute('position', new THREE.Float32BufferAttribute(position3, 3));
     geometry4.setAttribute('position', new THREE.Float32BufferAttribute(position4, 3));
 
-    let box1_line1 = new THREE.Line(geometry, material)
-    let box1_line2 = new THREE.Line(geometry2, material2)
-    let box1_line3 = new THREE.Line(geometry3, material3)
-    let box1_line4 = new THREE.Line(geometry4, material4)
+    let box1_line1 = new THREE.Line(geometry, material);
+    let box1_line2 = new THREE.Line(geometry2, material2);
+    let box1_line3 = new THREE.Line(geometry3, material3);
+    let box1_line4 = new THREE.Line(geometry4, material4);
 
-    let box2_line1 = new THREE.Line(geometry, material)
-    let box2_line2 = new THREE.Line(geometry2, material2)
-    let box2_line3 = new THREE.Line(geometry3, material3)
-    let box2_line4 = new THREE.Line(geometry4, material4)
+    let box2_line1 = new THREE.Line(geometry, material);
+    let box2_line2 = new THREE.Line(geometry2, material2);
+    let box2_line3 = new THREE.Line(geometry3, material3);
+    let box2_line4 = new THREE.Line(geometry4, material4);
 
-    let box3_line1 = new THREE.Line(geometry, material)
-    let box3_line2 = new THREE.Line(geometry2, material2)
-    let box3_line3 = new THREE.Line(geometry3, material3)
-    let box3_line4 = new THREE.Line(geometry4, material4)
+    let box3_line1 = new THREE.Line(geometry, material);
+    let box3_line2 = new THREE.Line(geometry2, material2);
+    let box3_line3 = new THREE.Line(geometry3, material3);
+    let box3_line4 = new THREE.Line(geometry4, material4);
 
     box1_line1.position.set(-length*2.5 , 0, -length*2.5);
     box1_line2.position.set(-length*2.5 , 0, -length*2.5);
@@ -270,14 +270,14 @@ const APP_CONFIG = {
     geometryChain2.setAttribute('position', new THREE.Float32BufferAttribute(positionChain2, 3));
     geometryChain3.setAttribute('position', new THREE.Float32BufferAttribute(positionChain3, 3));
 
-    let chain1 = new THREE.Line(geometryChain1, materialChain1)
-    let chain2 = new THREE.Line(geometryChain2, materialChain2)
-    let chain3 = new THREE.Line(geometryChain3, materialChain3)
+    let chain1 = new THREE.Line(geometryChain1, materialChain1);
+    let chain2 = new THREE.Line(geometryChain2, materialChain2);
+    let chain3 = new THREE.Line(geometryChain3, materialChain3);
 
     scene.add(chain1);
     scene.add(chain2);
     scene.add(chain3);
-  }
+  };
 
 
   // Render Document Mesh
@@ -364,36 +364,112 @@ const APP_CONFIG = {
     geometryLine3.setAttribute('position', new THREE.Float32BufferAttribute(positionLine3, 3));
     geometryLine4.setAttribute('position', new THREE.Float32BufferAttribute(positionLine4, 3));
 
-    let line1 = new THREE.Line(geometryLine1, materialLine1)
-    let line2 = new THREE.Line(geometryLine2, materialLine2)
-    let line3 = new THREE.Line(geometryLine3, materialLine3)
-    let line4 = new THREE.Line(geometryLine4, materialLine4)
+    let line1 = new THREE.Line(geometryLine1, materialLine1);
+    let line2 = new THREE.Line(geometryLine2, materialLine2);
+    let line3 = new THREE.Line(geometryLine3, materialLine3);
+    let line4 = new THREE.Line(geometryLine4, materialLine4);
 
     scene.add(line1);
     scene.add(line2);
     scene.add(line3);
     scene.add(line4);
-  }
+  };
+
+
+  // Render Mail Mesh
+  const getMailMashes = function () {
+    // mail
+    let material = new THREE.LineBasicMaterial({color: 0xffffff});
+    let geometry = new THREE.BufferGeometry();
+    let position = [];
+
+    let width = 10;
+    let height = 6;
+    let depth = 0.5;
+
+
+    position.push(
+      -width, -height, -depth,
+      -width, height, -depth,
+
+      -width, height, -depth,
+      width, height, -depth,
+
+      width, height, -depth,
+      width, -height, -depth,
+
+      width, -height, -depth,
+      -width, -height, -depth,
+
+      -width, -height, depth,
+      -width, height, depth,
+
+      -width, height, depth,
+      width, height, depth,
+
+      -width, height, depth,
+      width, height, depth,
+
+      width, height, depth,
+      width, -height, depth,
+
+      width, -height, depth,
+      -width, -height, depth,
+
+      -width, -height, -depth,
+      -width, -height, depth,
+    );
+
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
+
+    scene.add(new THREE.Line(geometry, material));
+
+    // Line
+    let materialLine1 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let materialLine2 = new THREE.LineBasicMaterial({color: 0xffffff});
+    let geometryLine1 = new THREE.BufferGeometry();
+    let geometryLine2 = new THREE.BufferGeometry();
+    let positionLine1 = [];
+    let positionLine2 = [];
+
+    positionLine1.push(
+      -width, height, depth,
+      0, -height*0.25,depth
+    );
+    positionLine2.push(
+      width, height, depth,
+      0, -height*0.25,depth
+    );
+
+    geometryLine1.setAttribute('position', new THREE.Float32BufferAttribute(positionLine1, 3));
+    geometryLine2.setAttribute('position', new THREE.Float32BufferAttribute(positionLine2, 3));
+
+    let line1 = new THREE.Line(geometryLine1, materialLine1);
+    let line2 = new THREE.Line(geometryLine2, materialLine2);
+
+    scene.add(line1);
+    scene.add(line2);
+  };
 
 
   const render = function () {
     if (camera.position.x >= limitCameraAngle && mouseX < 0)
-      camera.position.x = limitCameraAngle
+      camera.position.x = limitCameraAngle;
     else if (camera.position.x >= limitCameraAngle && mouseX >= 0)
       camera.position.x += (-mouseX - camera.position.x) * .003;
     else if (camera.position.x <= -limitCameraAngle && mouseX > 0)
-      camera.position.x = -limitCameraAngle
+      camera.position.x = -limitCameraAngle;
     else if (camera.position.x <= -limitCameraAngle && mouseX <= 0)
       camera.position.x += (-mouseX - camera.position.x) * .003;
     else
       camera.position.x += (-mouseX - camera.position.x) * .003;
 
     if (camera.position.y >= limitCameraAngle && -mouseY < 0)
-      camera.position.y = limitCameraAngle
+      camera.position.y = limitCameraAngle;
     else if (camera.position.y >= limitCameraAngle && -mouseY >= 0)
       camera.position.y += (mouseY - camera.position.y) * .003;
     else if (camera.position.y <= -limitCameraAngle && -mouseY > 0)
-      camera.position.y = -limitCameraAngle
+      camera.position.y = -limitCameraAngle;
     else if (camera.position.y <= -limitCameraAngle && -mouseY <= 0)
       camera.position.y += (mouseY - camera.position.y) * .003;
     else
@@ -402,20 +478,20 @@ const APP_CONFIG = {
     camera.lookAt(scene.position);
 
     renderer.render(scene, camera);
-  }
+  };
 
 
   const animate = function () {
     requestAnimationFrame(animate);
 
     render()
-  }
+  };
 
 
   const onDocumentMouseMove = function (event) {
     mouseX = (event.clientX - windowHalfX);
     mouseY = (event.clientY - windowHalfY);
-  }
+  };
 
 
   function onWindowResize() {
@@ -439,7 +515,7 @@ const APP_CONFIG = {
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('mousemove', onWindowResize, false);
-  }
+  };
 
 
   // ===============================
@@ -481,7 +557,7 @@ const APP_CONFIG = {
       while (scene.children.length > 0) {
         scene.remove(scene.children[0]);
       }
-    }
+    };
 
 
     const selectNav = function () {
@@ -499,9 +575,9 @@ const APP_CONFIG = {
 
     const setDummy = function () {
       if (currentSlide === 0 || currentSlide === 1)
-        $("#dummyBase").css({"background": $("#dummy_1").css("background")})
+        $("#dummyBase").css({"background": $("#dummy_1").css("background")});
       else if (currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 5)
-        $("#dummyBase").css({"background": $("#dummy_3").css("background")})
+        $("#dummyBase").css({"background": $("#dummy_3").css("background")});
 
       for (let i = 1; i <= $(".dummy").length - 1; ++i) {
         $("#dummy_" + i).css({"opacity": "0"});
@@ -540,32 +616,32 @@ const APP_CONFIG = {
           $("#threeContainer").css({"opacity": "0"});
           break;
       }
-    }
+    };
 
     const setThreeRender = function () {
 
       switch (currentSlide) {
         case 2 :
-          clearThreeScene()
-          getDocumentMashes()
+          clearThreeScene();
+          getDocumentMashes();
           break;
 
         case 3 :
-          clearThreeScene()
-          getCoinMashes()
+          clearThreeScene();
+          getCoinMashes();
           break;
 
         case 4 :
-          clearThreeScene()
-          getLockMashes()
+          clearThreeScene();
+          getLockMashes();
           break;
 
         case 5 :
-          clearThreeScene()
-          getLockMashes()
+          clearThreeScene();
+          getMailMashes();
           break;
       }
-    }
+    };
 
 
     const setWheelGuide = function () {
