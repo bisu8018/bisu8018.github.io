@@ -12,12 +12,12 @@ const APP_CONFIG = {
     '|  .--.  ||  |__     /  ^  \\    |   \\|  | \n' +
     '|  |  |  ||   __|   /  /_\\  \\   |  . `  | \n' +
     '|  \'--\'  ||  |____ /  _____  \\  |  |\\   | \n' +
-    '|_______/ |_______/__/     \\__\\ |__| \\__| \n\n\n');
-  console.log('[Github] \nhttps://github.io/bisu8018');
-  console.log('[Linkedin]\nhttps://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/');
-  console.log('[Velog]\nhttps://velog.io/@bisu8018');
-  console.log('[Email - Naver] \nbisu8018@naver.com');
-  console.log('[Email - Gmail] \nnabidarang@gmail.com');
+    '|_______/ |_______/__/     \\__\\ |__| \\__| \n\n\n' +
+    '[Github] \nhttps://github.io/bisu8018\n\n' +
+    '[Linkedin]\nhttps://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/\n\n' +
+    '[Velog]\nhttps://velog.io/@bisu8018\n\n' +
+    '[Email - Naver] \nbisu8018@naver.com\n\n' +
+    '[Email - Gmail] \nnabidarang@gmail.com');
 
 
   // ===============================
@@ -25,7 +25,7 @@ const APP_CONFIG = {
   // ===============================
 
   let scene = new THREE.Scene();
-  let camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 100000);
+  let camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 100000);
   let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
   let mouseX = 0, mouseY = 0;
   let limitCameraAngle = 20;
@@ -212,20 +212,20 @@ const APP_CONFIG = {
     let box3_line3 = new THREE.Line(geometry3, material3);
     let box3_line4 = new THREE.Line(geometry4, material4);
 
-    box1_line1.position.set(-length*2.5 , 0, -length*2.5);
-    box1_line2.position.set(-length*2.5 , 0, -length*2.5);
-    box1_line3.position.set(-length*2.5 , 0, -length*2.5);
-    box1_line4.position.set(-length*2.5 , 0, -length*2.5);
+    box1_line1.position.set(-length * 2.5, 0, -length * 2.5);
+    box1_line2.position.set(-length * 2.5, 0, -length * 2.5);
+    box1_line3.position.set(-length * 2.5, 0, -length * 2.5);
+    box1_line4.position.set(-length * 2.5, 0, -length * 2.5);
 
-    box2_line1.position.set(length*2.5 , 0, -length*2.5);
-    box2_line2.position.set(length*2.5 , 0, -length*2.5);
-    box2_line3.position.set(length*2.5 , 0, -length*2.5);
-    box2_line4.position.set(length*2.5 , 0, -length*2.5);
+    box2_line1.position.set(length * 2.5, 0, -length * 2.5);
+    box2_line2.position.set(length * 2.5, 0, -length * 2.5);
+    box2_line3.position.set(length * 2.5, 0, -length * 2.5);
+    box2_line4.position.set(length * 2.5, 0, -length * 2.5);
 
-    box3_line1.position.set(0 , 0, length*2.5);
-    box3_line2.position.set(0 , 0, length*2.5);
-    box3_line3.position.set(0 , 0, length*2.5);
-    box3_line4.position.set(0 , 0, length*2.5);
+    box3_line1.position.set(0, 0, length * 2.5);
+    box3_line2.position.set(0, 0, length * 2.5);
+    box3_line3.position.set(0, 0, length * 2.5);
+    box3_line4.position.set(0, 0, length * 2.5);
 
     scene.add(box1_line1);
     scene.add(box1_line2);
@@ -254,16 +254,16 @@ const APP_CONFIG = {
     let positionChain3 = [];
 
     positionChain1.push(
-      -length*1.5, length*0.1, -length*2.5,
-      length*1.5, length*0.1, -length*2.5,
+      -length * 1.5, length * 0.1, -length * 2.5,
+      length * 1.5, length * 0.1, -length * 2.5,
     );
     positionChain2.push(
-      -length*2.5, length*0.1, -length*1.5,
-      -length, 0, length*2.5,
+      -length * 2.5, length * 0.1, -length * 1.5,
+      -length, 0, length * 2.5,
     );
     positionChain3.push(
-      length*2.5, length*0.1, -length*1.5,
-      length, 0, length*2.5,
+      length * 2.5, length * 0.1, -length * 1.5,
+      length, 0, length * 2.5,
     );
 
     geometryChain1.setAttribute('position', new THREE.Float32BufferAttribute(positionChain1, 3));
@@ -343,20 +343,20 @@ const APP_CONFIG = {
     let positionLine4 = [];
 
     positionLine1.push(
-      -width*0.8, height*0.7, depth,
-      width*0.8, height*0.7,depth
+      -width * 0.8, height * 0.7, depth,
+      width * 0.8, height * 0.7, depth
     );
     positionLine2.push(
-      -width*0.8, height*0.5, depth,
-      width*0.8, height*0.5,depth
+      -width * 0.8, height * 0.5, depth,
+      width * 0.8, height * 0.5, depth
     );
     positionLine3.push(
-      -width*0.8, height*0.3, depth,
-      width*0.8, height*0.3,depth
+      -width * 0.8, height * 0.3, depth,
+      width * 0.8, height * 0.3, depth
     );
     positionLine4.push(
-      -width*0.8, height*0.1, depth,
-      width*0.8, height*0.1,depth
+      -width * 0.8, height * 0.1, depth,
+      width * 0.8, height * 0.1, depth
     );
 
     geometryLine1.setAttribute('position', new THREE.Float32BufferAttribute(positionLine1, 3));
@@ -434,11 +434,11 @@ const APP_CONFIG = {
 
     positionLine1.push(
       -width, height, depth,
-      0, -height*0.25,depth
+      0, -height * 0.25, depth
     );
     positionLine2.push(
       width, height, depth,
-      0, -height*0.25,depth
+      0, -height * 0.25, depth
     );
 
     geometryLine1.setAttribute('position', new THREE.Float32BufferAttribute(positionLine1, 3));
@@ -608,7 +608,9 @@ const APP_CONFIG = {
         case 3 :
         case 4 :
         case 5 :
-          $("#threeContainer").css({"opacity": "1"});
+          setTimeout(function () {
+            $("#threeContainer").css({"opacity": "1"});
+          }, 500)
           break;
 
 
@@ -619,28 +621,31 @@ const APP_CONFIG = {
     };
 
     const setThreeRender = function () {
+      $(".meshCanvas").css({"opacity": "0"});
 
-      switch (currentSlide) {
-        case 2 :
-          clearThreeScene();
-          getDocumentMashes();
-          break;
+      setTimeout(function () {
+        switch (currentSlide) {
+          case 2 :
+            clearThreeScene();
+            getDocumentMashes();
+            break;
 
-        case 3 :
-          clearThreeScene();
-          getCoinMashes();
-          break;
+          case 3 :
+            clearThreeScene();
+            getCoinMashes();
+            break;
 
-        case 4 :
-          clearThreeScene();
-          getLockMashes();
-          break;
+          case 4 :
+            clearThreeScene();
+            getLockMashes();
+            break;
 
-        case 5 :
-          clearThreeScene();
-          getMailMashes();
-          break;
-      }
+          case 5 :
+            clearThreeScene();
+            getMailMashes();
+            break;
+        }
+      }, 500)
     };
 
 
@@ -802,6 +807,11 @@ const APP_CONFIG = {
     // ===== jQuery Element Event =====
     $("header").click(function () {
       currentSlide = 0;
+      scrollToTop();
+    });
+
+    $("#mouseScroll").click(function () {
+      currentSlide = 1;
       scrollToTop();
     });
 
