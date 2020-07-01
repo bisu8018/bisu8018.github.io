@@ -569,7 +569,7 @@ const APP_CONFIG = {
 
 
     const hideNav = function () {
-      $("#nav").css({"opacity": (currentSlide === 0 ? "0" : "1")})
+      $("#nav").css({"opacity": (currentSlide === 0 || currentSlide === 6 ? "0" : "1")})
     };
 
 
@@ -578,6 +578,8 @@ const APP_CONFIG = {
         $("#dummyBase").css({"background": $("#dummy_1").css("background")});
       else if (currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 5)
         $("#dummyBase").css({"background": $("#dummy_3").css("background")});
+      else if (currentSlide === 6)
+        $("#dummyBase").css({"background": $("#dummy_7").css("background")});
 
       for (let i = 1; i <= $(".dummy").length - 1; ++i) {
         $("#dummy_" + i).css({"opacity": "0"});
@@ -590,6 +592,7 @@ const APP_CONFIG = {
     const setLogo = function () {
       switch (currentSlide) {
         case 0 :
+        case 6 :
           $(".h_logo div:first-child").css({"opacity": "1"});
           $(".h_logo div:last-child").css({"opacity": "0"});
           break;
@@ -652,17 +655,36 @@ const APP_CONFIG = {
     const setWheelGuide = function () {
       switch (currentSlide) {
         case 0 :
-          $(".mouse_scroll").css({"display": "block"});
+          $("#mouseScrollContainer").css({"display": "block"});
           setTimeout(function () {
-            $(".mouse_scroll").css({"opacity": "1"});
+            $("#mouseScrollContainer").css({"opacity": "1"});
           }, 500);
           break;
 
         case 1 :
         default :
-          $(".mouse_scroll").css({"opacity": "0"});
+          $("#mouseScrollContainer").css({"opacity": "0"});
           setTimeout(function () {
-            $(".mouse_scroll").css({"display": "none"});
+            $("#mouseScrollContainer").css({"display": "none"});
+          }, 500);
+          break;
+      }
+    };
+
+
+    const setToTopBtn = function () {
+      switch (currentSlide) {
+        case 6 :
+          $("#toTopContainer").css({"display": "block"});
+          setTimeout(function () {
+            $("#toTopContainer").css({"opacity": "1"});
+          }, 500);
+          break;
+
+        default :
+          $("#toTopContainer").css({"opacity": "0"});
+          setTimeout(function () {
+            $("#toTopContainer").css({"display": "none"});
           }, 500);
           break;
       }
@@ -678,6 +700,7 @@ const APP_CONFIG = {
       setLogo();
       setShowingThree();
       setWheelGuide();
+      setToTopBtn();
     };
 
 
@@ -797,6 +820,9 @@ const APP_CONFIG = {
 
       setWheelGuide();
       if (APP_CONFIG.debug) console.log("SET WHEEL GUIDE");
+
+      setToTopBtn();
+      if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
     };
 
 
@@ -805,7 +831,12 @@ const APP_CONFIG = {
 
 
     // ===== jQuery Element Event =====
-    $("header").click(function () {
+    $(".h_logo").click(function () {
+      currentSlide = 0;
+      scrollToTop();
+    });
+
+    $("#toTopContainer div").click(function () {
       currentSlide = 0;
       scrollToTop();
     });

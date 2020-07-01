@@ -280,7 +280,7 @@ body {
 }
 
 #dummyBase {
-  background: #77b5f4;
+  background: #447ed6;
 }
 
 #dummy_1 {
@@ -314,7 +314,7 @@ body {
 }
 
 #dummy_7 {
-  background: #497dd6;
+  background: linear-gradient(to right top, #232e80, #28338f, #2e379e, #343cad, #3b40bc, #4e43c4, #5f45cc, #7047d3, #8848d4, #9e4ad5, #b24cd5, #c54ed5);
   opacity: 0;
 }
 
@@ -1335,6 +1335,11 @@ footer {
   width: 100%;
 }
 
+#mouseScrollContainer {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
 .mouse_scrollText {
   transform: rotate(-90deg);
   position: absolute;
@@ -1371,7 +1376,6 @@ footer {
   bottom: 2rem;
   cursor: default;
   transition: all 0.5s ease-in-out;
-  opacity: 0;
 }
 
 @media (max-width: 991px) {
@@ -1926,4 +1930,71 @@ footer {
   .meshCanvas {
     left: 0;
   }
+}
+
+.sevenSection_contactContainer {
+  width: 60%;
+}
+
+@media (max-width: 767px) {
+  .sevenSection_contactContainer {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  .sevenSection_contactContainer {
+    width: 100%;
+  }
+}
+
+.sevenSection_contactContainer div {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sevenSection_contactContainer div:last-child {
+  margin-bottom: 0;
+}
+
+.sevenSection_contactContainer a {
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.sevenSection_contactContainer a:hover {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+#toTopContainer {
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+#toTopContainer div {
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 15%;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+
+#toTopContainer div:hover {
+  font-weight: bold;
 }
