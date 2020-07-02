@@ -358,6 +358,14 @@ header {
   }
 }
 
+@media (max-height: 720px) {
+  .h_logo {
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+  }
+}
+
 @media (max-width: 767px) {
   .h_logo {
     right: 2rem;
