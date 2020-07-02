@@ -1,5 +1,10 @@
 const APP_CONFIG = {
-  debug: false
+  debug: false,
+  github: 'bisu8018.github.io',
+  linkedin: 'https://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/',
+  velog: 'https://velog.io/@bisu8018',
+  email_naver: 'bisu8018@naver.com',
+  email_google: 'nabidarang@gmail.com'
 };
 
 
@@ -13,11 +18,12 @@ const APP_CONFIG = {
     '|  |  |  ||   __|   /  /_\\  \\   |  . `  | \n' +
     '|  \'--\'  ||  |____ /  _____  \\  |  |\\   | \n' +
     '|_______/ |_______/__/     \\__\\ |__| \\__| \n\n\n' +
-    '[Github] \nhttps://github.io/bisu8018\n\n' +
-    '[Linkedin]\nhttps://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/\n\n' +
-    '[Velog]\nhttps://velog.io/@bisu8018\n\n' +
-    '[Email - Naver] \nbisu8018@naver.com\n\n' +
-    '[Email - Gmail] \nnabidarang@gmail.com');
+    '[Github]\n' + APP_CONFIG.github +
+    '\n\n[Linkedin]\n' + APP_CONFIG.linkedin +
+    '\n\n[Velog]\n' + APP_CONFIG.velog +
+    '\n\n[Email - Naver]\n' + APP_CONFIG.email_naver +
+    '\n\n[Email - Gmail]\n' + APP_CONFIG.email_google
+  );
 
 
   // ===============================
