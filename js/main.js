@@ -1,6 +1,6 @@
 const APP_CONFIG = {
   debug: false,
-  github: 'bisu8018.github.io',
+  github: 'https://github.com/bisu8018',
   linkedin: 'https://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/',
   velog: 'https://velog.io/@bisu8018',
   email_naver: 'bisu8018@naver.com',

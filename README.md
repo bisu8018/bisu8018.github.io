@@ -8,8 +8,11 @@ _______   _______     ___       __   __
 
 ```
 
+[Site]
+https://bisu8018.github.io
+
 [Github]
-bisu8018.github.io
+https://github.com/bisu8018
 
 [Linkedin]
 https://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/
