@@ -609,6 +609,19 @@ const APP_CONFIG = {
       }
     };
 
+
+    const showLang = function () {
+      switch (currentSlide) {
+        case 0 :
+          $(".h_languageSelector").css({"opacity": "1"});
+          break;
+
+        default :
+          $(".h_languageSelector").css({"opacity": "0"});
+          break;
+      }
+    };
+
     const setShowingThree = function () {
       switch (currentSlide) {
         case 2 :
@@ -617,7 +630,7 @@ const APP_CONFIG = {
         case 5 :
           setTimeout(function () {
             $("#threeContainer").css({"opacity": "1"});
-          }, 500)
+          }, 400)
           break;
 
 
@@ -652,7 +665,7 @@ const APP_CONFIG = {
             getMailMashes();
             break;
         }
-      }, 500)
+      }, 400)
     };
 
 
@@ -662,7 +675,7 @@ const APP_CONFIG = {
           $("#mouseScrollContainer").css({"display": "block"});
           setTimeout(function () {
             $("#mouseScrollContainer").css({"opacity": "1"});
-          }, 500);
+          }, 400);
           break;
 
         case 1 :
@@ -670,7 +683,7 @@ const APP_CONFIG = {
           $("#mouseScrollContainer").css({"opacity": "0"});
           setTimeout(function () {
             $("#mouseScrollContainer").css({"display": "none"});
-          }, 500);
+          }, 400);
           break;
       }
     };
@@ -682,14 +695,14 @@ const APP_CONFIG = {
           $("#toTopContainer").css({"display": "block"});
           setTimeout(function () {
             $("#toTopContainer").css({"opacity": "1"});
-          }, 500);
+          }, 400);
           break;
 
         default :
           $("#toTopContainer").css({"opacity": "0"});
           setTimeout(function () {
             $("#toTopContainer").css({"display": "none"});
-          }, 500);
+          }, 400);
           break;
       }
     };
@@ -702,6 +715,7 @@ const APP_CONFIG = {
       selectNav();
       setDummy();
       setLogo();
+      showLang();
       setShowingThree();
       setWheelGuide();
       setToTopBtn();
@@ -741,7 +755,7 @@ const APP_CONFIG = {
         {
           scrollTop: offsetTop
         },
-        1000,
+        500,
         checkAnimation
       );
     };
@@ -818,6 +832,9 @@ const APP_CONFIG = {
 
       setLogo();
       if (APP_CONFIG.debug) console.log("SET LOGO");
+
+      showLang();
+      if (APP_CONFIG.debug) console.log("SET LANGUAGE SELECTOR SHOW");
 
       setShowingThree();
       if (APP_CONFIG.debug) console.log("SET 3D CONTAINER SHOW");

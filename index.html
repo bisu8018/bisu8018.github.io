@@ -43,6 +43,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/vendor/three.js"></script>
+<script src="js/localization.js"></script>
 
 <div class="dummy" id="dummyBase"></div>
 <div class="dummy" id="dummy_1"></div>
@@ -61,6 +62,10 @@
     <div>
       Dean
     </div>
+  </div>
+  <div class="h_languageSelector">
+    <div id="languageSelectorKr">KR</div>
+    <div id="languageSelectorEn">EN</div>
   </div>
 </header>
 
@@ -126,23 +131,19 @@
 
   <section id="secondSection" class="section">
     <div class="secondSection_aboutContainer">
-      <div>
-        <span>
-          I'm dreaming to make a product for the human department someday.
-        </span>
-      </div>
       <div class="secondSection_sentenseWrapper">
         <div>
-          <span>I majored in business administration and understand the perspectives of product planners and marketers.</span>
+          <span data-lang="a-text-1" class="_localization_"></span>
         </div>
         <div>
-          <span>Therefore, this advantage helped the team achieve a good performance.</span>
+          <span data-lang="a-text-2" class="_localization_"></span>
         </div>
       </div>
       <div>
-        <span>
-          I'm always trying to be a steady developer.
-        </span>
+        <span data-lang="a-text-3" class="_localization_"></span>
+      </div>
+      <div>
+        <span data-lang="a-text-4" class="_localization_"></span>
       </div>
     </div>
   </section>
@@ -152,49 +153,48 @@
     <div class="thirdSection_portfolioContainer">
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
-          <a target="_blank" href="http://www.infraware-global.com/" title="link to infraware" class="hover hover-1">infraware</a>
+          <a target="_blank" href="http://www.infraware-global.com/" title="link to infraware"
+             class="hover hover-1 _localization_" data-lang="p_infraware"></a>
         </div>
       </div>
-      <div class="thirdSection_position">
-        front-end developer
+      <div class="thirdSection_position _localization_" data-lang="p_frontend_developer"></div>
+      <div class="thirdSection_dates _localization_" data-lang="p_infaraware_date"></div>
+      <div class="thirdSection_portfolioBtnContainer">
+        <a href="https://github.com/bisu8018/document-share-platform-reactjs" title="Link to portfolio" target="_blank">
+          <div class="thirdSection_portfolioBtn pulse _localization_" data-lang="p_portfolio"></div>
+        </a>
       </div>
-      <div class="thirdSection_dates">2019 - present</div>
       <div>
-        <div class="thirdSection_careerTitle">
-          Based on React.js, Polaris Office Umbrella brand document sharing platform Polaris Share building project,
-          front-end development
-        </div>
+        <div class="thirdSection_careerTitle _localization_" data-lang="p_infaraware_subject"></div>
         <ul class="thirdSection_careerList">
-          <li>ES6 ~ Lodash, using modern JavaScript practice</li>
-          <li>React js + Express and Next js based reactive CSR/SSR SPA construction</li>
-          <!--<li>Apply GraphQL ~ Apollo Client</li>-->
-          <li>Webpack build system construction and project structure design</li>
-          <li>JEST, Enzyme based TDD progress</li>
-          <li>SEO (Google), Open Graph, oEmbed application and management</li>
-          <li>Asset management such as font, sprite image, and SCSS preprocessor applied</li>
-          <!--<li>Client profiling performance tuning</li>-->
-          <li>AWS (EC2, ECS, EKS, Lambda, blue/green distribution, etc.) and Docker + Kubernetes applied</li>
-          <li>Polaris Office ~ Polaris Share webview SDK integration, client development</li>
+          <li class="_localization_" data-lang="p_infaraware_list_1"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_2"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_3"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_4"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_5"></li>
+       <!--   <li class="_localization_" data-lang="p_infaraware_list_6"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_7"></li>-->
+          <li class="_localization_" data-lang="p_infaraware_list_8"></li>
+          <li class="_localization_" data-lang="p_infaraware_list_9"></li>
         </ul>
       </div>
       <div class="thirdSection_skillContainer">
-        <div class="thirdSection_skillTitle">skills</div>
+        <div class="thirdSection_skillTitle _localization_" data-lang="p_skills"></div>
         <ul class="thirdSection_skillList">
           <li>
-            <span>React.js</span>
-            <span>graphql</span>
-            <span>apollo</span>
-            <span>Webpack</span>
-            <span>JavaScript</span>
-            <span>TypeScript</span>
-            <span>JEST</span>
-            <span>html5</span>
-            <span>scss</span>
+            <span class="_localization_" data-lang="p_react"></span>
+            <span class="_localization_" data-lang="p_next"></span>
+            <span class="_localization_" data-lang="p_graphql"></span>
+            <span class="_localization_" data-lang="p_apollo"></span>
+            <span class="_localization_" data-lang="p_webpack"></span>
+            <span class="_localization_" data-lang="p_type"></span>
+            <span class="_localization_" data-lang="p_jest"></span>
+            <span class="_localization_" data-lang="p_scss"></span>
           </li>
         </ul>
       </div>
-      <div class="thirdSection_githubContainer">
-        <div class="thirdSection_githubTitle">github</div>
+      <!--<div class="thirdSection_githubContainer">
+        <div class="thirdSection_githubTitle _localization_" data-lang="p_github"></div>
         <ul class="thirdSection_githubList">
           <li>
             <a target="_blank" href="https://github.com/bisu8018/document-share-platform-nextjs" title="Link to github">
@@ -208,7 +208,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -218,43 +218,40 @@
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
           <a target="_blank" href="https://www.rocketpunch.com/companies/jakin-1/" title="link to jakin"
-             class="hover hover-1">jakin</a>
+             class="hover hover-1 _localization_" data-lang="p_jakin"></a>
         </div>
       </div>
-      <div class="thirdSection_position">
-        front-end developer
-      </div>
+      <div class="thirdSection_position _localization_" data-lang="p_jakin_frontend_developer"></div>
       <div class="thirdSection_dates">2018 - 2019</div>
+      <div class="thirdSection_portfolioBtnContainer">
+        <a href="https://github.com/bisu8018/p2p_exchange_front_end" title="Link to portfolio" target="_blank">
+          <div class="thirdSection_portfolioBtn pulse _localization_" data-lang="p_portfolio"></div>
+        </a>
+      </div>
       <div>
-        <div class="thirdSection_careerTitle">
-          Vue.js based, P2P cryptocurrency exchange construction project, front-end development
-        </div>
+        <div class="thirdSection_careerTitle _localization_" data-lang="p_jakin_subject"></div>
         <ul class="thirdSection_careerList">
-          <li>Vue.js based reactive SPA construction</li>
-          <li>Webpack build system construction and maintenance</li>
-          <li>Backend API based, test code writing</li>
-          <li>Front-end performance tuning</li>
-          <li>Creating technical documents related to the front-end</li>
-          <li>Common work for CSS and design library</li>
+          <li class="_localization_" data-lang="p_jakin_list_1"></li>
+          <li class="_localization_" data-lang="p_jakin_list_2"></li>
+          <li class="_localization_" data-lang="p_jakin_list_3"></li>
+          <li class="_localization_" data-lang="p_jakin_list_4"></li>
+          <li class="_localization_" data-lang="p_jakin_list_5"></li>
+          <li class="_localization_" data-lang="p_jakin_list_6"></li>
         </ul>
       </div>
       <div class="thirdSection_skillContainer">
-        <div class="thirdSection_skillTitle">skills</div>
+        <div class="thirdSection_skillTitle _localization_" data-lang="p_skills"></div>
         <ul class="thirdSection_skillList">
           <li>
-            <span>Vue.js</span>
-            <span>Vuetify</span>
-            <span>vuex</span>
-            <span>Webpack</span>
-            <span>JavaScript</span>
-            <span>TypeScript</span>
-            <span>html5</span>
-            <span>css3</span>
+            <span class="_localization_" data-lang="p_vue"></span>
+            <span class="_localization_" data-lang="p_webpack"></span>
+            <span class="_localization_" data-lang="p_type"></span>
+            <span class="_localization_" data-lang="p_vuetify"></span>
           </li>
         </ul>
       </div>
-      <div class="thirdSection_githubContainer">
-        <div class="thirdSection_githubTitle">github</div>
+      <!--<div class="thirdSection_githubContainer">
+        <div class="thirdSection_githubTitle _localization_" data-lang="p_github"></div>
         <ul class="thirdSection_githubList">
           <li>
             <a target="_blank" href="https://github.com/bisu8018/p2p_exchange_front_end" title="Link to github">
@@ -262,7 +259,7 @@
             </a>
           </li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -270,50 +267,46 @@
     <div class="thirdSection_portfolioContainer">
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
-          <a target="_blank" href="https://inca.co.kr/" title="link to inca internet" class="hover hover-1">inca
-            internet</a>
+          <a target="_blank" href="https://inca.co.kr/" title="link to inca internet"
+             class="hover hover-1 _localization_" data-lang="p_inca"></a>
         </div>
       </div>
-      <div class="thirdSection_position">
-        security solution engineer
-      </div>
+      <div class="thirdSection_position _localization_" data-lang="p_inca_position"></div>
       <div class="thirdSection_dates">2017 - 2018</div>
       <div>
-        <div class="thirdSection_careerTitle">In-house solution nProtect, customer server/client deployment and
-          management
-        </div>
+        <div class="thirdSection_careerTitle _localization_" data-lang="p_inca_subject"></div>
         <ul class="thirdSection_companyList">
           <li>
-            <span>Hana Financial Investment</span>
-            <span>Samsung Futures</span>
-            <span>Kookmin bank</span>
-            <span>fsb</span>
-            <span>Nonghyup Card</span>
+            <span class="_localization_" data-lang="p_inca_list_1"></span>
+            <span class="_localization_" data-lang="p_inca_list_2"></span>
+            <span class="_localization_" data-lang="p_inca_list_3"></span>
+            <span class="_localization_" data-lang="p_inca_list_4"></span>
+            <span class="_localization_" data-lang="p_inca_list_5"></span>
           </li>
           <li>
-            <span>vp</span>
-            <span>kcp</span>
+            <span class="_localization_" data-lang="p_inca_list_6"></span>
+            <span class="_localization_" data-lang="p_inca_list_7"></span>
           </li>
           <li>
-            <span>Sejong University</span>
-            <span>Daegu University of Education</span>
+            <span class="_localization_" data-lang="p_inca_list_8"></span>
+            <span class="_localization_" data-lang="p_inca_list_9"></span>
           </li>
           <li>
-            <span>Lotte Members</span>
-            <span>Hyundai Commercial</span>
+            <span class="_localization_" data-lang="p_inca_list_10"></span>
+            <span class="_localization_" data-lang="p_inca_list_11"></span>
+            <span class="_localization_" data-lang="p_inca_list_12"></span>
+            <span class="_localization_" data-lang="p_inca_list_13"></span>
           </li>
         </ul>
       </div>
       <div class="thirdSection_skillContainer">
-        <div class="thirdSection_skillTitle">skills</div>
+        <div class="thirdSection_skillTitle _localization_" data-lang="p_skills"></div>
         <ul class="thirdSection_skillList">
           <li>
-            <span>java</span>
-            <span>javascript</span>
-            <span>html5</span>
-            <span>css3</span>
-            <span>jquery</span>
-            <span>android</span>
+            <span class="_localization_" data-lang="p_java"></span>
+            <span class="_localization_" data-lang="p_javascript"></span>
+            <span class="_localization_" data-lang="p_jquery"></span>
+            <span class="_localization_" data-lang="p_android"></span>
           </li>
         </ul>
       </div>
@@ -324,39 +317,34 @@
     <div class="thirdSection_portfolioContainer">
       <div class="thirdSection_company">
         <div class="thirdSection_linkWrapper">
-          <a target="_blank" href="http://www.myems.co.kr/b2b/" title="link to myems" class="hover hover-1">myems</a>
+          <a target="_blank" href="http://www.myems.co.kr/b2b/" title="link to myems"
+             class="hover hover-1 _localization_"  data-lang="p_myems"></a>
         </div>
       </div>
-      <div class="thirdSection_position">
-        full stack developer
-      </div>
+      <div class="thirdSection_position _localization_"  data-lang="p_myems_position"></div>
       <div class="thirdSection_dates">2016 - 2017</div>
       <div>
-        <div class="thirdSection_careerTitle">B2B / Admin EMS web platform construction</div>
+        <div class="thirdSection_careerTitle _localization_"  data-lang="p_myems_position"></div>
         <ul class="thirdSection_careerList">
-          <li>Javascript. jQuery based, B2B EMS web system developing</li>
-          <li>Collaboration with Korea Post office, Woojung Business Headquarters, interworking with server data and DB
-            API
-          </li>
-          <li>Oracle MySQL, RDBMS</li>
-          <li>Android based, home delivery APP maintenance</li>
-          <li>Development collaboration with Lotte Global Logis, Settlement Process Web Development</li>
-          <li>Developed web-based EMS platform for the first time in the industry</li>
-          <li>Post office sales reached 20 billion won and ranked 1st in the industry ('16, '17)</li>
+          <li class="_localization_"  data-lang="p_myems_list_1"></li>
+          <li class="_localization_"  data-lang="p_myems_list_2"></li>
+          <li class="_localization_"  data-lang="p_myems_list_3"></li>
+          <li class="_localization_"  data-lang="p_myems_list_4"></li>
+          <li class="_localization_"  data-lang="p_myems_list_5"></li>
+          <li class="_localization_"  data-lang="p_myems_list_6"></li>
+          <li class="_localization_"  data-lang="p_myems_list_7"></li>
         </ul>
       </div>
       <div class="thirdSection_skillContainer">
-        <div class="thirdSection_skillTitle">skills</div>
+        <div class="thirdSection_skillTitle _localization_" data-lang="p_skills"></div>
         <ul class="thirdSection_skillList">
           <li>
-            <span>php</span>
-            <span>java</span>
-            <span>javascript</span>
-            <span>html5</span>
-            <span>css3</span>
-            <span>jquery</span>
-            <span>mysql</span>
-            <span>android</span>
+            <span class="_localization_" data-lang="p_php"></span>
+            <span class="_localization_" data-lang="p_mysql"></span>
+            <span class="_localization_" data-lang="p_java"></span>
+            <span class="_localization_" data-lang="p_javascript"></span>
+            <span class="_localization_" data-lang="p_jquery"></span>
+            <span class="_localization_" data-lang="p_android"></span>
           </li>
         </ul>
       </div>
@@ -366,16 +354,20 @@
   <section id="sevenSection" class="section">
     <div class="sevenSection_contactContainer row">
       <div class="col-12 col-sm-3">
-        <a target="_blank" href="https://github.com/bisu8018" title="Link to Github">github</a>
+        <a target="_blank" href="https://github.com/bisu8018" title="Link to Github"
+           class="_localization_" data-lang="c_github"></a>
       </div>
       <div class="col-12 col-sm-3">
-        <a target="_blank" href="https://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/" title="Link to Linkedin">linkedin</a>
+        <a target="_blank" href="https://www.linkedin.com/in/%ED%9D%AC%EC%9A%A9-%EB%B0%95-836022169/"
+           title="Link to Linkedin" class="_localization_" data-lang="c_linkedin"></a>
       </div>
       <div class="col-12 col-sm-3">
-        <a target="_blank" href="https://velog.io/@bisu8018" title="Link to Velog">velog</a>
+        <a target="_blank" href="https://velog.io/@bisu8018" title="Link to Velog"
+           class="_localization_" data-lang="c_velog"></a>
       </div>
       <div class="col-12 col-sm-3">
-        <a target="_blank" href="mailto:dean.huiyong.park@gmail.com" title="Mail to dean">email</a>
+        <a target="_blank" href="mailto:dean.huiyong.park@gmail.com" title="Mail to dean"
+           class="_localization_" data-lang="c_email"></a>
       </div>
     </div>
   </section>
