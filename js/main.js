@@ -594,30 +594,21 @@ const APP_CONFIG = {
 
 
     const setLogo = function () {
-      switch (currentSlide) {
-        case 0 :
-          $(".h_logo div:first-child").css({"opacity": "1"});
-          $(".h_logo div:last-child").css({"opacity": "0"});
-          break;
-
-        default :
-          $(".h_logo div:first-child").css({"opacity": "0"});
-          $(".h_logo div:last-child").css({"opacity": "1"});
-          break;
+      if (currentSlide === 0) {
+        $(".h_logo div:first-child").css({"opacity": "1"});
+        $(".h_logo div:last-child").css({"opacity": "0"});
+      } else {
+        $(".h_logo div:first-child").css({"opacity": "0"});
+        $(".h_logo div:last-child").css({"opacity": "1"});
       }
     };
 
 
     const showLang = function () {
-      switch (currentSlide) {
-        case 0 :
-          $(".h_languageSelector").css({"opacity": "0"});
-          break;
-
-        default :
-          $(".h_languageSelector").css({"opacity": "1"});
-          break;
-      }
+      if (currentSlide === 0)
+        $(".h_languageSelector").css({"opacity": "0"});
+      else
+        $(".h_languageSelector").css({"opacity": "1"});
     };
 
     const setShowingThree = function () {
@@ -628,7 +619,7 @@ const APP_CONFIG = {
         case 5 :
           setTimeout(function () {
             $("#threeContainer").css({"opacity": "1"});
-          }, 400)
+          }, 400);
           break;
 
 
