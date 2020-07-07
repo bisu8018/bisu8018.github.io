@@ -535,7 +535,7 @@ const APP_CONFIG = {
     const stopAnimation = function () {
       setTimeout(function () {
         isAnimating = false;
-      }, 300);
+      }, 700);
     };
 
 
@@ -596,12 +596,10 @@ const APP_CONFIG = {
     const setLogo = function () {
       switch (currentSlide) {
         case 0 :
-        case 6 :
           $(".h_logo div:first-child").css({"opacity": "1"});
           $(".h_logo div:last-child").css({"opacity": "0"});
           break;
 
-        case 1 :
         default :
           $(".h_logo div:first-child").css({"opacity": "0"});
           $(".h_logo div:last-child").css({"opacity": "1"});
@@ -613,11 +611,11 @@ const APP_CONFIG = {
     const showLang = function () {
       switch (currentSlide) {
         case 0 :
-          $(".h_languageSelector").css({"opacity": "1"});
+          $(".h_languageSelector").css({"opacity": "0"});
           break;
 
         default :
-          $(".h_languageSelector").css({"opacity": "0"});
+          $(".h_languageSelector").css({"opacity": "1"});
           break;
       }
     };

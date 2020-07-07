@@ -18,14 +18,14 @@ const strings = new Map([
   [
     'a-text-3',
     {
-      KOR: '저의 꿈은 언젠가 인류 발전에 기여하는 솔루션을 만드는 것 입니다.',
+      KOR: '언젠가 인류 발전에 기여하는 솔루션을 만드는 것이 목표입니다.',
       ENG: 'My goal is to make a solution that contributes to the development of humanity someday.'
     }
   ],
   [
     'a-text-4',
     {
-      KOR: '이를 이루기 위해 발전을 멈추지 않는 개발자가 되려 늘 노력하고 있습니다.',
+      KOR: '이를 위해 꾸준한 개발자가 되려 노력하고 있습니다.',
       ENG: 'That\'s why I\'m constantly trying to be a developer that doesn\'t stop developing.'
     }
   ],
@@ -412,7 +412,7 @@ const strings = new Map([
   [
     'p_react',
     {
-      KOR: '리액트js',
+      KOR: 'react.js',
       ENG: 'react.js'
     }
   ],
@@ -468,21 +468,21 @@ const strings = new Map([
   [
     'p_vue',
     {
-      KOR: '뷰js',
+      KOR: 'vue.js',
       ENG: 'vue.js'
     }
   ],
   [
     'p_vuetify',
     {
-      KOR: '뷰티파이',
+      KOR: 'vuetify',
       ENG: 'vuetify'
     }
   ],
   [
     'p_jquery',
     {
-      KOR: '제이쿼리',
+      KOR: 'jQuery',
       ENG: 'jQuery'
     }
   ],
