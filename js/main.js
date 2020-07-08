@@ -827,8 +827,11 @@ const APP_CONFIG = {
     };
 
     const checkAvatarLoaded = function () {
+
       $("#imgAvatar").ready(function () {
-        $(".line").css({"display": "none"})
+        $(".line").css({"display": "none"});
+        $(".loadingPage").css({"display": "none"});
+        $(".loadingDummy").css({"display": "none"});
       });
     };
 
@@ -844,7 +847,6 @@ const APP_CONFIG = {
       checkAvatarLoaded();
       if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
-
       initThreeJs();
       animate();
       setThreeRender();
@@ -858,9 +860,6 @@ const APP_CONFIG = {
 
       hideNav();
       if (APP_CONFIG.debug) console.log("SET NAV HIDE");
-
-      setWheelAddEventListener();
-      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
 
       setDummy();
       if (APP_CONFIG.debug) console.log("SET DUMMY");
@@ -879,6 +878,9 @@ const APP_CONFIG = {
 
       setToTopBtn();
       if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
+
+      setWheelAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
     };
 
 
