@@ -835,6 +835,13 @@ const APP_CONFIG = {
       setResizeAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
 
+      window.onload = function () {
+        $('.line').css({'display': 'none'});
+        $('.loadingPage').css({'display': 'none'});
+        $('.loadingDummy').css({'display': 'none'});
+      };
+      if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
+
       initThreeJs();
       animate();
       setThreeRender();

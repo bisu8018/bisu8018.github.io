@@ -265,7 +265,7 @@ textarea {
    ========================================================================== */
 
 body {
-  font-family: 'Noah', sans-serif;
+  font-family: 'Noah', auto, sans-serif;
   overflow-y: hidden;
 }
 
@@ -349,7 +349,7 @@ header {
 }
 
 .h_logo {
-  font-family: Furore, serif;
+  font-family: Furore, auto, sans-serif;
   color: white;
   font-size: 40px;
   display: inline-block;
@@ -391,7 +391,7 @@ header {
 
 .h_languageSelector > div {
   color: white;
-  font-family: Noah, serif;
+  font-family: Noah, auto, sans-serif;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
@@ -1359,7 +1359,7 @@ footer {
   left: calc(50% - 27px);
   bottom: 167px;
   color: white;
-  font-family: 'Noah', sans-serif;
+  font-family: 'Noah', auto, sans-serif;
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 2px;
@@ -1948,7 +1948,7 @@ footer {
   border: 1px solid white;
   padding: .5rem 1.5rem;
   color: #fff;
-  font-family: Lato, Arial, sans-serif;
+  font-family: Noah, auto, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -2112,7 +2112,7 @@ footer {
   cursor: default;
   font-size: 2rem;
   letter-spacing: .8rem;
-  font-family: Furore, serif;
+  font-family: Furore, auto, sans-serif;
   top: 0;
   left: -6px;
   color: white;
