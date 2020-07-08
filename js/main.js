@@ -786,17 +786,63 @@ const APP_CONFIG = {
           },
           {passive: false}
         )
+      },
+      resize: function () {
+        window.onresize = function (event) {
+          drawLines();
+        };
       }
     };
 
-
-    const setAddEventListener = function () {
+    const setWheelAddEventListener = function () {
       addEventListener.wheel();
     };
 
+    const setResizeAddEventListener = function () {
+      addEventListener.resize();
+    };
+
+    const getHeight = function () {
+      return window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+    };
+
+    const drawLines = function () {
+      const lines = document.getElementsByClassName('line');
+
+      if (lines.length)
+        for (let i = 0; i < lines.length; i++) {
+          document.body.removeChild(lines[i]);
+        }
+
+      for (let i = 0; i < getHeight() / 10; i++) {
+        const line = document.createElement("div");
+        line.className = `line line-${i}`;
+        line.style.top = `${i * 10}px`;
+        const time = Math.random() * 5;
+        line.style.animation = `lines ${time}s infinite`;
+        document.body.appendChild(line);
+      }
+    };
+
+    const checkAvatarLoaded = function () {
+      $("#imgAvatar").ready(function () {
+        $(".line").css({"display": "none"})
+      });
+    };
 
     const init = function () {
       if (APP_CONFIG.debug) console.log("\n\n============\nSTART INIT");
+
+      drawLines();
+      if (APP_CONFIG.debug) console.log("SET LOADING PAGE");
+
+      setResizeAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
+
+      checkAvatarLoaded();
+      if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
 
       initThreeJs();
@@ -813,8 +859,8 @@ const APP_CONFIG = {
       hideNav();
       if (APP_CONFIG.debug) console.log("SET NAV HIDE");
 
-      setAddEventListener();
-      if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
+      setWheelAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
 
       setDummy();
       if (APP_CONFIG.debug) console.log("SET DUMMY");
@@ -837,8 +883,8 @@ const APP_CONFIG = {
 
 
     // ===== site Initialize =====
-    init();
 
+    init();
 
     // ===== jQuery Element Event =====
     $(".h_logo").click(function () {
