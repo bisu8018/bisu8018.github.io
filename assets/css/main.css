@@ -1954,7 +1954,7 @@ footer {
   will-change: transform;
 }
 .thirdSection_portfolioBtn:hover {
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 17px rgba(255, 255, 255, 0.32);
   transform: translate3d(0, -2px, 0);
 }
 .thirdSection_portfolioBtn:active {
