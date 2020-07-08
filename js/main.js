@@ -828,10 +828,10 @@ const APP_CONFIG = {
 
     const checkAvatarLoaded = function () {
 
-      $("#imgAvatar").ready(function () {
-        $(".line").css({"display": "none"});
-        $(".loadingPage").css({"display": "none"});
-        $(".loadingDummy").css({"display": "none"});
+      $('#imgAvatar').ready(function () {
+        $('.line').css({'display': 'none'});
+        $('.loadingPage').css({'display': 'none'});
+        $('.loadingDummy').css({'display': 'none'});
       });
     };
 

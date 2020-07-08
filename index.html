@@ -125,7 +125,15 @@
     <div class="firstSection_profileContainer">
       <div class="firstSection_avatarContainer">
         <div>
-          <img src="assets/img/avatar.JPG" onload="console.log(1)" alt="Dean's profile pic" id="imgAvatar"/>
+          <img src="assets/img/avatar.JPG"
+               onload="
+               $('#imgAvatar').ready(function () {
+                  $('.line').css({'display': 'none'});
+                  $('.loadingPage').css({'display': 'none'});
+                  $('.loadingDummy').css({'display': 'none'});
+                });
+               "
+               alt="Dean's profile pic" id="imgAvatar"/>
         </div>
       </div>
       <div class="firstSection_nameContainer" id="nameContainer">Dean H. Park</div>
