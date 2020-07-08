@@ -2094,11 +2094,9 @@ footer {
   transform: translateY(-50%) translateX(-50%);
   left: 50%;
   z-index: 10;
-  transition: all 0.5s ease-in;
 }
 
 .loadingDummy {
-  transition: all 0.5s ease-in;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -2110,7 +2108,7 @@ footer {
 
 .loadingPage > .loadingText {
   cursor: default;
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: .8rem;
   font-family: Furore, auto, sans-serif;
   top: 0;
@@ -2163,7 +2161,6 @@ footer {
   -moz-filter: blur(1px);
   filter: blur(1px);
   z-index: 9;
-  transition: all 0.5s ease-in;
 }
 
 .line:after, .line:before {

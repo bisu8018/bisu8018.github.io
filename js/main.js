@@ -531,6 +531,7 @@ const APP_CONFIG = {
     let $slides = $(selector);
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
+    let isInit = false;
 
     const stopAnimation = function () {
       setTimeout(function () {
@@ -757,7 +758,7 @@ const APP_CONFIG = {
           function (event) {
             let $currentSlide = $($slides[currentSlide]);
 
-            if (isAnimating) {
+            if (isAnimating || !isInit) {
               event.preventDefault();
               return;
             }
@@ -826,6 +827,16 @@ const APP_CONFIG = {
       }
     };
 
+    const checkImgLoaded = function () {
+      window.onload = function () {
+        $('.line').css({'display': 'none'});
+        $('.loadingPage').css({'display': 'none'});
+        $('.loadingDummy').css({'display': 'none'});
+
+        isInit = true;
+      };
+    };
+
     const init = function () {
       if (APP_CONFIG.debug) console.log("\n\n============\nSTART INIT");
 
@@ -835,11 +846,7 @@ const APP_CONFIG = {
       setResizeAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
 
-      window.onload = function () {
-        $('.line').css({'display': 'none'});
-        $('.loadingPage').css({'display': 'none'});
-        $('.loadingDummy').css({'display': 'none'});
-      };
+      checkImgLoaded();
       if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
       initThreeJs();
