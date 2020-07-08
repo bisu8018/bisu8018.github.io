@@ -826,15 +826,6 @@ const APP_CONFIG = {
       }
     };
 
-    const checkAvatarLoaded = function () {
-
-      $('#imgAvatar').ready(function () {
-        $('.line').css({'display': 'none'});
-        $('.loadingPage').css({'display': 'none'});
-        $('.loadingDummy').css({'display': 'none'});
-      });
-    };
-
     const init = function () {
       if (APP_CONFIG.debug) console.log("\n\n============\nSTART INIT");
 
@@ -843,9 +834,6 @@ const APP_CONFIG = {
 
       setResizeAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
-
-      checkAvatarLoaded();
-      if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
       initThreeJs();
       animate();
