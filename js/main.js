@@ -531,6 +531,7 @@ const APP_CONFIG = {
     let $slides = $(selector);
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
+    let isInit = false;
 
     const stopAnimation = function () {
       setTimeout(function () {
@@ -757,7 +758,7 @@ const APP_CONFIG = {
           function (event) {
             let $currentSlide = $($slides[currentSlide]);
 
-            if (isAnimating) {
+            if (isAnimating || !isInit) {
               event.preventDefault();
               return;
             }
@@ -786,18 +787,67 @@ const APP_CONFIG = {
           },
           {passive: false}
         )
+      },
+      resize: function () {
+        window.onresize = function (event) {
+          drawLines();
+        };
       }
     };
 
-
-    const setAddEventListener = function () {
+    const setWheelAddEventListener = function () {
       addEventListener.wheel();
     };
 
+    const setResizeAddEventListener = function () {
+      addEventListener.resize();
+    };
+
+    const getHeight = function () {
+      return window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+    };
+
+    const drawLines = function () {
+      const lines = document.getElementsByClassName('line');
+
+      if (lines.length)
+        for (let i = 0; i < lines.length; i++) {
+          document.body.removeChild(lines[i]);
+        }
+
+      for (let i = 0; i < getHeight() / 10; i++) {
+        const line = document.createElement("div");
+        line.className = `line line-${i}`;
+        line.style.top = `${i * 10}px`;
+        const time = Math.random() * 5;
+        line.style.animation = `lines ${time}s infinite`;
+        document.body.appendChild(line);
+      }
+    };
+
+    const checkImgLoaded = function () {
+      window.onload = function () {
+        $('.line').css({'display': 'none'});
+        $('.loadingPage').css({'display': 'none'});
+        $('.loadingDummy').css({'display': 'none'});
+
+        isInit = true;
+      };
+    };
 
     const init = function () {
       if (APP_CONFIG.debug) console.log("\n\n============\nSTART INIT");
 
+      drawLines();
+      if (APP_CONFIG.debug) console.log("SET LOADING PAGE");
+
+      setResizeAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
+
+      checkImgLoaded();
+      if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
       initThreeJs();
       animate();
@@ -812,9 +862,6 @@ const APP_CONFIG = {
 
       hideNav();
       if (APP_CONFIG.debug) console.log("SET NAV HIDE");
-
-      setAddEventListener();
-      if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
 
       setDummy();
       if (APP_CONFIG.debug) console.log("SET DUMMY");
@@ -833,12 +880,15 @@ const APP_CONFIG = {
 
       setToTopBtn();
       if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
+
+      setWheelAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
     };
 
 
     // ===== site Initialize =====
-    init();
 
+    init();
 
     // ===== jQuery Element Event =====
     $(".h_logo").click(function () {

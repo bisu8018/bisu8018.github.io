@@ -368,20 +368,6 @@ const strings = new Map([
     }
   ],
   [
-    'p_myems_list_6',
-    {
-      KOR: '동종업계 최초 웹 기반 EMS 플랫폼 구',
-      ENG: 'Developed web-based EMS platform for the first time in the industry'
-    }
-  ],
-  [
-    'p_myems_list_7',
-    {
-      KOR: '우체국 매출액 200억 및 동종업계 1위 달성 (\'16, \'17 년)',
-      ENG: 'Post office sales reached 20 billion won and ranked 1st in the industry (\'16, \'17)'
-    }
-  ],
-  [
     'c_github',
     {
       KOR: '깃허브',
