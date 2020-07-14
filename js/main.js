@@ -750,47 +750,60 @@ const APP_CONFIG = {
       );
     };
 
+    const scrollToOthers = function (event) {
+      let $currentSlide = $($slides[currentSlide]);
+
+      if (isAnimating || !isInit) {
+        event.preventDefault();
+        return;
+      }
+
+      let directionY = -event.deltaY;
+
+      if (directionY < 0) {
+        // next
+        if (currentSlide + 1 >= $slides.length) return;
+        if (!bottomIsReached($currentSlide)) return;
+
+        event.preventDefault();
+        currentSlide++;
+
+        scrollToTop();
+      } else {
+        // back
+        if (currentSlide - 1 < 0) return;
+        if (!topIsReached($currentSlide)) return;
+
+        event.preventDefault();
+        currentSlide--;
+
+        scrollToTop();
+      }
+    };
+
 
     const addEventListener = {
       wheel: function () {
         document.addEventListener(
           "wheel",
           function (event) {
-            let $currentSlide = $($slides[currentSlide]);
-
-            if (isAnimating || !isInit) {
-              event.preventDefault();
-              return;
-            }
-
-            let directionY = -event.deltaY;
-
-            if (directionY < 0) {
-              // next
-              if (currentSlide + 1 >= $slides.length) return;
-              if (!bottomIsReached($currentSlide)) return;
-
-              event.preventDefault();
-              currentSlide++;
-
-              scrollToTop();
-            } else {
-              // back
-              if (currentSlide - 1 < 0) return;
-              if (!topIsReached($currentSlide)) return;
-
-              event.preventDefault();
-              currentSlide--;
-
-              scrollToTop();
-            }
+            scrollToOthers(event)
+          },
+          {passive: false}
+        )
+      },
+      touchmove: function () {
+        document.addEventListener(
+          "touchmove",
+          function (event) {
+            scrollToOthers(event)
           },
           {passive: false}
         )
       },
       resize: function () {
         window.onresize = function (event) {
-          drawLines();
+          if(!isInit) drawLines();
         };
       }
     };
