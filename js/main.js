@@ -859,7 +859,7 @@ const APP_CONFIG = {
       setResizeAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD RESIZE EVENT LISTENER");
 
-      checkImgLoaded();
+      //checkImgLoaded();
       if (APP_CONFIG.debug) console.log("SET CHECKING AVATAR LOADED");
 
       initThreeJs();
