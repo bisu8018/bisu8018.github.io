@@ -886,13 +886,12 @@ const APP_CONFIG = {
         line.style.top = `${i * 10}px`;
         const time = Math.random() * 5;
         line.style.animation = `lines ${time}s infinite`;
-        document.body.appendChild(line);
+        $("#loadingDummy").append(line);
       }
     };
 
     const checkImgLoaded = function () {
       window.onload = function () {
-        $('.line').css({'display': 'none'});
         $('.loadingPage').css({'display': 'none'});
         $('.loadingDummy').css({'display': 'none'});
 
