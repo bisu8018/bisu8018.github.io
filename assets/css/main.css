@@ -266,7 +266,9 @@ textarea {
 
 body {
   font-family: 'Noah', auto, sans-serif;
-  overflow-y: hidden;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
 .dummy {
@@ -514,6 +516,12 @@ header {
 .nav_wrapper .nav_hidden:active li.ghost {
   opacity: 1;
   max-width: 2em;
+}
+
+.main section {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
 .main section {
