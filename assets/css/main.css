@@ -538,7 +538,7 @@ header {
   }
 }
 
-#firstSection {
+#firstSection, #sevenSection {
   align-items: center !important;
 }
 
