@@ -793,7 +793,7 @@ const APP_CONFIG = {
 
       let directionY = Number(event.touches[0].screenY - touchmoveStart.y);
 
-      if (directionY < -10) {
+      if (directionY < -20) {
         // next
         if (currentSlide + 1 >= $slides.length) return;
         if (!bottomIsReached($currentSlide)) return;
@@ -803,7 +803,7 @@ const APP_CONFIG = {
         currentSlide++;
 
         scrollToTop();
-      } else if (directionY > 10) {
+      } else if (directionY > 20) {
         // back
         if (currentSlide - 1 < 0) return;
         if (!topIsReached($currentSlide)) return;
