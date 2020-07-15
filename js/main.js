@@ -758,8 +758,9 @@ const APP_CONFIG = {
         return;
       }
 
-      let directionY = -event.deltaY;
-
+      let directionY = event.type === 'touchmove' ? -event.touches[0].pageY : -event.deltaY;
+console.log(event.type)
+console.log(event.touches)
       if (directionY < 0) {
         // next
         if (currentSlide + 1 >= $slides.length) return;
@@ -810,6 +811,10 @@ const APP_CONFIG = {
 
     const setWheelAddEventListener = function () {
       addEventListener.wheel();
+    };
+
+    const setTouchmoveAddEventListener = function () {
+      addEventListener.touchmove();
     };
 
     const setResizeAddEventListener = function () {
@@ -895,7 +900,8 @@ const APP_CONFIG = {
       if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
 
       setWheelAddEventListener();
-      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
+      setTouchmoveAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
     };
 
 
