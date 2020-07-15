@@ -759,8 +759,7 @@ const APP_CONFIG = {
       }
 
       let directionY = event.type === 'touchmove' ? -event.touches[0].pageY : -event.deltaY;
-console.log(event.type)
-console.log(event.touches)
+
       if (directionY < 0) {
         // next
         if (currentSlide + 1 >= $slides.length) return;
