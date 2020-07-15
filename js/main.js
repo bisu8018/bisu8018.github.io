@@ -532,6 +532,8 @@ const APP_CONFIG = {
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
     let isInit = false;
+    let touchmoveStart = {x: 0, y: 0};
+    let isTouchEnd = true;
 
     const stopAnimation = function () {
       setTimeout(function () {
@@ -758,7 +760,7 @@ const APP_CONFIG = {
         return;
       }
 
-      let directionY = event.type === 'touchmove' ? -event.touches[0].pageY : -event.deltaY;
+      let directionY = -event.deltaY;
 
       if (directionY < 0) {
         // next
@@ -781,6 +783,39 @@ const APP_CONFIG = {
       }
     };
 
+    const touchMoveToOthers = function (event) {
+      let $currentSlide = $($slides[currentSlide]);
+
+      if (isAnimating || !isInit || isTouchEnd) {
+        event.preventDefault();
+        return;
+      }
+
+      let directionY = Number(event.touches[0].screenY - touchmoveStart.y);
+
+      if (directionY < -10) {
+        // next
+        if (currentSlide + 1 >= $slides.length) return;
+        if (!bottomIsReached($currentSlide)) return;
+
+        isTouchEnd = true;
+        event.preventDefault();
+        currentSlide++;
+
+        scrollToTop();
+      } else if (directionY > 10) {
+        // back
+        if (currentSlide - 1 < 0) return;
+        if (!topIsReached($currentSlide)) return;
+
+        isTouchEnd = true;
+        event.preventDefault();
+        currentSlide--;
+
+        scrollToTop();
+      }
+    };
+
 
     const addEventListener = {
       wheel: function () {
@@ -796,14 +831,24 @@ const APP_CONFIG = {
         document.addEventListener(
           "touchmove",
           function (event) {
-            scrollToOthers(event)
+            touchMoveToOthers(event)
+          },
+          {passive: false}
+        )
+      },
+      touchstart: function () {
+        document.addEventListener(
+          "touchstart",
+          function (event) {
+            isTouchEnd = false;
+            touchmoveStart.y = event.touches[0].screenY;
           },
           {passive: false}
         )
       },
       resize: function () {
         window.onresize = function (event) {
-          if(!isInit) drawLines();
+          if (!isInit) drawLines();
         };
       }
     };
@@ -812,7 +857,8 @@ const APP_CONFIG = {
       addEventListener.wheel();
     };
 
-    const setTouchmoveAddEventListener = function () {
+    const setTouchAddEventListener = function () {
+      addEventListener.touchstart();
       addEventListener.touchmove();
     };
 
@@ -899,7 +945,7 @@ const APP_CONFIG = {
       if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
 
       setWheelAddEventListener();
-      setTouchmoveAddEventListener();
+      setTouchAddEventListener();
       if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
     };
 
