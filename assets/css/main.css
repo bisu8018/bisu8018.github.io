@@ -518,7 +518,7 @@ header {
   max-width: 2em;
 }
 
-.main section {
+.main {
   overflow: hidden;
   position: relative;
   height: 100%;
@@ -2093,7 +2093,7 @@ footer {
 }
 
 .loadingPage {
-  position: absolute;
+  position: fixed;
   top: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
   -moz-transform: translateY(-50%) translateX(-50%);

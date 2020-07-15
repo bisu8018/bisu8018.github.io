@@ -538,7 +538,7 @@ const APP_CONFIG = {
     const stopAnimation = function () {
       setTimeout(function () {
         isAnimating = false;
-      }, 700);
+      }, 650);
     };
 
 
@@ -762,7 +762,7 @@ const APP_CONFIG = {
 
       let directionY = -event.deltaY;
 
-      if (directionY < 0) {
+      if (directionY < -20) {
         // next
         if (currentSlide + 1 >= $slides.length) return;
         if (!bottomIsReached($currentSlide)) return;
@@ -771,7 +771,7 @@ const APP_CONFIG = {
         currentSlide++;
 
         scrollToTop();
-      } else {
+      } else if(directionY > 20) {
         // back
         if (currentSlide - 1 < 0) return;
         if (!topIsReached($currentSlide)) return;
