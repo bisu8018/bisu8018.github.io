@@ -529,8 +529,17 @@ header {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
+}
+
+@media (min-width: 576px) {
+  .main section {
+    align-items: center;
+  }
+}
+
+#firstSection {
+  align-items: center !important;
 }
 
 .firstSection_profileContainer {
@@ -1658,7 +1667,7 @@ footer {
 
 @media (max-width: 575px) {
   .secondSection_aboutContainer {
-    padding: 1rem;
+    padding: 5rem 1rem 1rem 1rem;
     max-width: 100%;
   }
 }
@@ -1668,9 +1677,15 @@ footer {
   text-transform: uppercase;
   line-height: 2;
   letter-spacing: 2px;
-  font-size: 0.8rem;
+  font-size: .8rem;
   margin-bottom: 1rem;
   cursor: default;
+}
+
+@media (max-width: 575px) {
+  .secondSection_aboutContainer div {
+    font-size: .9rem;
+  }
 }
 
 .secondSection_aboutContainer div span {
@@ -1679,7 +1694,7 @@ footer {
 
 .secondSection_aboutContainer div:not(.secondSection_sentenseWrapper):hover span {
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .secondSection_sentenseWrapper div {
@@ -1713,15 +1728,13 @@ footer {
 @media (max-width: 767px) {
   .thirdSection_portfolioContainer {
     padding: 2rem;
-    font-size: 0.7rem;
     max-width: 100%;
   }
 }
 
 @media (max-width: 575px) {
   .thirdSection_portfolioContainer {
-    padding: 1rem;
-    font-size: 0.7rem;
+    padding: 5rem 1rem 1rem 1rem;
     max-width: 100%;
   }
 }
