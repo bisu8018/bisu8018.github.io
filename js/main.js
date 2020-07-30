@@ -532,11 +532,13 @@ const APP_CONFIG = {
     let currentSlide = Math.floor($(document).scrollTop() / $(window).outerHeight());
     let isAnimating = false;
     let isInit = false;
+    let touchmoveStart = {x: 0, y: 0};
+    let isTouchEnd = true;
 
     const stopAnimation = function () {
       setTimeout(function () {
         isAnimating = false;
-      }, 700);
+      }, 650);
     };
 
 
@@ -750,53 +752,114 @@ const APP_CONFIG = {
       );
     };
 
+    const scrollToOthers = function (event) {
+      let $currentSlide = $($slides[currentSlide]);
+
+      if (isAnimating || !isInit) {
+        event.preventDefault();
+        return;
+      }
+
+      let directionY = -event.deltaY;
+
+      if (directionY < -20) {
+        // next
+        if (currentSlide + 1 >= $slides.length) return;
+        if (!bottomIsReached($currentSlide)) return;
+
+        event.preventDefault();
+        currentSlide++;
+
+        scrollToTop();
+      } else if(directionY > 20) {
+        // back
+        if (currentSlide - 1 < 0) return;
+        if (!topIsReached($currentSlide)) return;
+
+        event.preventDefault();
+        currentSlide--;
+
+        scrollToTop();
+      }
+    };
+
+    const touchMoveToOthers = function (event) {
+      let $currentSlide = $($slides[currentSlide]);
+
+      if (isAnimating || !isInit || isTouchEnd) {
+        event.preventDefault();
+        return;
+      }
+
+      let directionY = Number(event.touches[0].screenY - touchmoveStart.y);
+
+      if (directionY < -20) {
+        // next
+        if (currentSlide + 1 >= $slides.length) return;
+        if (!bottomIsReached($currentSlide)) return;
+
+        isTouchEnd = true;
+        event.preventDefault();
+        currentSlide++;
+
+        scrollToTop();
+      } else if (directionY > 20) {
+        // back
+        if (currentSlide - 1 < 0) return;
+        if (!topIsReached($currentSlide)) return;
+
+        isTouchEnd = true;
+        event.preventDefault();
+        currentSlide--;
+
+        scrollToTop();
+      }
+    };
+
 
     const addEventListener = {
       wheel: function () {
         document.addEventListener(
           "wheel",
           function (event) {
-            let $currentSlide = $($slides[currentSlide]);
-
-            if (isAnimating || !isInit) {
-              event.preventDefault();
-              return;
-            }
-
-            let directionY = -event.deltaY;
-
-            if (directionY < 0) {
-              // next
-              if (currentSlide + 1 >= $slides.length) return;
-              if (!bottomIsReached($currentSlide)) return;
-
-              event.preventDefault();
-              currentSlide++;
-
-              scrollToTop();
-            } else {
-              // back
-              if (currentSlide - 1 < 0) return;
-              if (!topIsReached($currentSlide)) return;
-
-              event.preventDefault();
-              currentSlide--;
-
-              scrollToTop();
-            }
+            scrollToOthers(event)
+          },
+          {passive: false}
+        )
+      },
+      touchmove: function () {
+        document.addEventListener(
+          "touchmove",
+          function (event) {
+            touchMoveToOthers(event)
+          },
+          {passive: false}
+        )
+      },
+      touchstart: function () {
+        document.addEventListener(
+          "touchstart",
+          function (event) {
+            isTouchEnd = false;
+            touchmoveStart.y = event.touches[0].screenY;
           },
           {passive: false}
         )
       },
       resize: function () {
         window.onresize = function (event) {
-          drawLines();
+          if (!isInit) drawLines();
         };
       }
     };
 
     const setWheelAddEventListener = function () {
       addEventListener.wheel();
+    };
+
+    const setTouchAddEventListener = function () {
+      addEventListener.touchstart();
+      addEventListener.touchmove();
     };
 
     const setResizeAddEventListener = function () {
@@ -823,13 +886,12 @@ const APP_CONFIG = {
         line.style.top = `${i * 10}px`;
         const time = Math.random() * 5;
         line.style.animation = `lines ${time}s infinite`;
-        document.body.appendChild(line);
+        $("#loadingDummy").append(line);
       }
     };
 
     const checkImgLoaded = function () {
       window.onload = function () {
-        $('.line').css({'display': 'none'});
         $('.loadingPage').css({'display': 'none'});
         $('.loadingDummy').css({'display': 'none'});
 
@@ -882,7 +944,8 @@ const APP_CONFIG = {
       if (APP_CONFIG.debug) console.log("SET TO TOP BUTTON");
 
       setWheelAddEventListener();
-      if (APP_CONFIG.debug) console.log("SET ADD WHEEL EVENT LISTENER");
+      setTouchAddEventListener();
+      if (APP_CONFIG.debug) console.log("SET ADD EVENT LISTENER");
     };
 
 
