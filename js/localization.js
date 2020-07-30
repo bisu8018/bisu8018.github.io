@@ -510,8 +510,8 @@ const strings = new Map([
   [
     'p_portfolio',
     {
-      KOR: '포트폴리오',
-      ENG: 'portfolio'
+      KOR: '소스코드',
+      ENG: 'source code'
     }
   ],
   [
