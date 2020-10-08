@@ -111,8 +111,8 @@ const strings = new Map([
   [
     'p_infaraware_list_8',
     {
-      KOR: 'AWS (EC2, ECS, EKS, Lambda, blue/green 배포 등등) 및 Docker + Kubernetes 적용',
-      ENG: 'AWS (EC2, ECS, EKS, Lambda, blue/green distribution, etc.) and Docker + Kubernetes applied'
+      KOR: 'Node.js, AWS (EC2, ECS, EKS, Lambda, blue/green 빌드 배포 등) 및 Docker + Kubernetes 적용',
+      ENG: 'Node.js, AWS (EC2, ECS, EKS, Lambda, blue/green build deploy, etc.) and Docker + Kubernetes applied'
     }
   ],
   [
