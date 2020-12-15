@@ -48,8 +48,8 @@ const strings = new Map([
   [
     'p_infaraware_date',
     {
-      KOR: '2019 - 현재',
-      ENG: '2019 - present'
+      KOR: '2019 - 2020',
+      ENG: '2019 - 2020'
     }
   ],
   [
